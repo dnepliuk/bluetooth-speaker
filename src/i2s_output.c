@@ -4,6 +4,7 @@
 #include <stdint.h>
 
 #include "app_config.h"
+#include "app_diagnostics.h"
 #include "driver/i2s_std.h"
 #include "esp_log.h"
 #include "freertos/FreeRTOS.h"
@@ -40,7 +41,8 @@ static esp_err_t i2s_output_init_channel(void)
              I2S_LRCK_GPIO,
              I2S_DATA_GPIO);
     ESP_LOGI(TAG,
-             "I2S format: Philips/I2S, signed PCM, bit_width=16, stereo, "
+             "I2S format: Philips/I2S, signed PCM s16le, interleaved L/R, "
+             "bit_width=16, stereo, "
              "sample_rate=%lu Hz, DMA auto_clear=yes, descriptors=%u, "
              "frames/descriptor=%u, DMA depth=%lu.%03lu ms",
              (unsigned long)DEFAULT_SAMPLE_RATE_HZ,
@@ -124,6 +126,7 @@ static void i2s_init_task(void *argument)
              "will be allocated on this core",
              (int)xPortGetCoreID());
     context->result = i2s_output_init_channel();
+    app_diagnostics_record_stack(DIAG_TASK_I2S_INIT);
     xTaskNotifyGive(context->waiter);
     vTaskDelete(NULL);
 }
@@ -255,6 +258,15 @@ esp_err_t i2s_output_write(
     size_t size,
     size_t *bytes_written)
 {
+    if (bytes_written == NULL)
+    {
+        return ESP_ERR_INVALID_ARG;
+    }
+    *bytes_written = 0;
+    if (data == NULL || size == 0 || size % AUDIO_PCM_FRAME_BYTES != 0)
+    {
+        return ESP_ERR_INVALID_ARG;
+    }
 #if AUDIO_DIAGNOSTIC_BYPASS_I2S
     (void)data;
     (void)size;
@@ -264,6 +276,8 @@ esp_err_t i2s_output_write(
     }
     return ESP_ERR_NOT_SUPPORTED;
 #else
-    return i2s_channel_write(tx_channel, data, size, bytes_written, 1000);
+    /* This API takes milliseconds, not FreeRTOS ticks. DMA paces the writer. */
+    return i2s_channel_write(
+        tx_channel, data, size, bytes_written, I2S_WRITE_TIMEOUT_MS);
 #endif
 }

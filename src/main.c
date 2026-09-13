@@ -1,4 +1,5 @@
 #include "app_config.h"
+#include "app_diagnostics.h"
 #include "audio_pipeline.h"
 #include "bluetooth_audio.h"
 #include "esp_err.h"
@@ -28,12 +29,18 @@ static void initialize_nvs(void)
 
 void app_main(void)
 {
+    app_diagnostics_init();
     ESP_LOGI(TAG, "app_main started");
 
     ESP_ERROR_CHECK(status_led_init());
     initialize_nvs();
     ESP_ERROR_CHECK(audio_pipeline_init());
+#if AUDIO_DIAGNOSTIC_TONE_ENABLED
+    ESP_LOGW(TAG, "Diagnostic tone build: Bluetooth is not started");
+    status_led_set_state(STATUS_LED_STREAMING);
+#else
     ESP_ERROR_CHECK(bluetooth_audio_init());
+#endif
 
     ESP_LOGI(TAG, "Initialization complete");
 }

@@ -5,6 +5,7 @@
 #include <string.h>
 
 #include "app_config.h"
+#include "app_diagnostics.h"
 #include "audio_pipeline.h"
 #include "esp_a2dp_api.h"
 #include "esp_avrc_api.h"
@@ -20,12 +21,14 @@
 
 static const char *TAG = APP_LOG_TAG;
 
+#if !BT_DIAGNOSTIC_MINIMAL_MODE
 static QueueHandle_t bda_save_queue;
 static portMUX_TYPE bluetooth_state_lock = portMUX_INITIALIZER_UNLOCKED;
 static esp_bd_addr_t connected_bda;
 static bool connected_bda_valid;
 static bool have_last_bda;
 static esp_bd_addr_t last_bda;
+#endif
 
 static const char *connection_state_name(esp_a2d_connection_state_t state)
 {
@@ -52,6 +55,7 @@ static void log_bda(const char *prefix, const esp_bd_addr_t bda)
              bda[0], bda[1], bda[2], bda[3], bda[4], bda[5]);
 }
 
+#if !BT_DIAGNOSTIC_MINIMAL_MODE
 static void load_last_bda(void)
 {
     nvs_handle_t handle;
@@ -128,6 +132,8 @@ static void save_last_bda(const esp_bd_addr_t bda)
         status_led_signal_error();
     }
 }
+
+#endif
 
 static uint32_t sample_rate_from_sbc_config(const esp_a2d_mcc_t *mcc)
 {
@@ -214,6 +220,7 @@ static void a2dp_event_callback(esp_a2d_cb_event_t event,
 
         if (param->conn_stat.state == ESP_A2D_CONNECTION_STATE_CONNECTED)
         {
+#if !BT_DIAGNOSTIC_MINIMAL_MODE
             portENTER_CRITICAL(&bluetooth_state_lock);
             memcpy(
                 connected_bda,
@@ -222,8 +229,10 @@ static void a2dp_event_callback(esp_a2d_cb_event_t event,
             connected_bda_valid = true;
             portEXIT_CRITICAL(&bluetooth_state_lock);
             audio_pipeline_update_rssi(0, false);
+#endif
 
             status_led_set_state(STATUS_LED_CONNECTED);
+#if !BT_DIAGNOSTIC_MINIMAL_MODE
             if (bda_save_queue == NULL ||
                 xQueueOverwrite(
                     bda_save_queue,
@@ -232,13 +241,16 @@ static void a2dp_event_callback(esp_a2d_cb_event_t event,
                 ESP_LOGW(TAG, "Cannot queue connected phone MAC for NVS");
                 status_led_signal_error();
             }
+#endif
         }
         else if (param->conn_stat.state == ESP_A2D_CONNECTION_STATE_DISCONNECTED)
         {
+#if !BT_DIAGNOSTIC_MINIMAL_MODE
             portENTER_CRITICAL(&bluetooth_state_lock);
             connected_bda_valid = false;
             portEXIT_CRITICAL(&bluetooth_state_lock);
             audio_pipeline_update_rssi(0, false);
+#endif
 
             audio_pipeline_set_streaming(false);
             status_led_set_state(STATUS_LED_DISCOVERABLE);
@@ -281,6 +293,9 @@ static void a2dp_event_callback(esp_a2d_cb_event_t event,
             const uint8_t *raw = (const uint8_t *)sbc;
             uint32_t detected_sample_rate_hz =
                 sample_rate_from_sbc_config(&param->audio_cfg.mcc);
+            uint8_t channels =
+                (sbc->ch_mode & ESP_A2D_SBC_CIE_CH_MODE_MONO) ? 1U : 2U;
+            audio_pipeline_set_pcm_channels(channels);
             audio_pipeline_set_sample_rate(detected_sample_rate_hz);
             ESP_LOGI(TAG,
                      "SBC config received: raw=%02x %02x %02x %02x, "
@@ -302,6 +317,17 @@ static void a2dp_event_callback(esp_a2d_cb_event_t event,
             ESP_LOGI(TAG,
                      "SBC sample rate detected: %lu Hz",
                      (unsigned long)detected_sample_rate_hz);
+            if (channels != 2U)
+            {
+                ESP_LOGE(TAG, "SBC mono PCM is unsupported by this stereo pipeline; "
+                              "packets will be rejected");
+                status_led_signal_error();
+            }
+            else
+            {
+                ESP_LOGI(TAG, "Decoded PCM: signed 16-bit little-endian, "
+                              "interleaved L/R, 4 bytes/frame");
+            }
         }
         else
         {
@@ -317,6 +343,7 @@ static void a2dp_event_callback(esp_a2d_cb_event_t event,
     }
 }
 
+#if !BT_DIAGNOSTIC_MINIMAL_MODE
 static const char *avrc_init_state_name(esp_avrc_init_state_t state)
 {
     switch (state)
@@ -359,6 +386,8 @@ static void avrc_controller_event_callback(
         break;
     }
 }
+
+#endif
 
 static void gap_event_callback(esp_bt_gap_cb_event_t event,
                                esp_bt_gap_cb_param_t *param)
@@ -411,6 +440,7 @@ static void gap_event_callback(esp_bt_gap_cb_event_t event,
         esp_bt_gap_ssp_confirm_reply(param->cfm_req.bda, true);
         break;
 
+#if !BT_DIAGNOSTIC_MINIMAL_MODE
     case ESP_BT_GAP_READ_RSSI_DELTA_EVT:
         portENTER_CRITICAL(&bluetooth_state_lock);
         bool matching_connection =
@@ -428,12 +458,29 @@ static void gap_event_callback(esp_bt_gap_cb_event_t event,
                 param->read_rssi_delta.stat == ESP_BT_STATUS_SUCCESS);
         }
         break;
+#endif
+
+    case ESP_BT_GAP_MODE_CHG_EVT:
+        ESP_LOGI(TAG, "Bluetooth link mode=%d, interval=%u slots (625 us/slot)",
+                 param->mode_chg.mode, (unsigned)param->mode_chg.interval);
+        break;
+
+    case ESP_BT_GAP_ACL_CONN_CMPL_STAT_EVT:
+        ESP_LOGI(TAG, "Bluetooth ACL connection status=0x%x",
+                 (unsigned)param->acl_conn_cmpl_stat.stat);
+        break;
+
+    case ESP_BT_GAP_ACL_DISCONN_CMPL_STAT_EVT:
+        ESP_LOGI(TAG, "Bluetooth ACL disconnection reason=0x%x",
+                 (unsigned)param->acl_disconn_cmpl_stat.reason);
+        break;
 
     default:
         break;
     }
 }
 
+#if !BT_DIAGNOSTIC_MINIMAL_MODE
 static void reconnect_task(void *argument)
 {
     (void)argument;
@@ -453,12 +500,14 @@ static void reconnect_task(void *argument)
             ESP_LOGI(TAG, "Automatic reconnect request submitted");
         }
     }
+    app_diagnostics_record_stack(DIAG_TASK_RECONNECT);
     vTaskDelete(NULL);
 }
 
 static void bluetooth_storage_task(void *argument)
 {
     (void)argument;
+    app_diagnostics_track_task(DIAG_TASK_STORAGE);
 
     esp_bd_addr_t bda;
     while (true)
@@ -473,6 +522,7 @@ static void bluetooth_storage_task(void *argument)
 static void bluetooth_rssi_task(void *argument)
 {
     (void)argument;
+    app_diagnostics_track_task(DIAG_TASK_RSSI);
 
     vTaskDelay(pdMS_TO_TICKS(BT_RSSI_INITIAL_DELAY_MS));
     while (true)
@@ -503,6 +553,8 @@ static void bluetooth_rssi_task(void *argument)
     }
 }
 
+#endif
+
 static void bluetooth_stack_init(void)
 {
     ESP_LOGI(TAG, "Starting Bluetooth Classic controller");
@@ -526,18 +578,32 @@ static void bluetooth_stack_init(void)
     ESP_ERROR_CHECK(esp_bluedroid_enable());
     ESP_LOGI(TAG, "Bluedroid host stack started");
 
-    /* Avoid synchronous packet-by-packet warnings in the media path. */
-    esp_log_level_set("BT_APPL", ESP_LOG_ERROR);
+    /* Keep faults observable in both modes. The application log hook counts
+     * every selected fault and limits duplicate lines only in normal mode. */
+    esp_log_level_set("BT_HCI", ESP_LOG_WARN);
+    esp_log_level_set("BT_APPL", ESP_LOG_WARN);
+    esp_log_level_set("BT_A2D", ESP_LOG_WARN);
+    esp_log_level_set("BT_AVDT", ESP_LOG_WARN);
     ESP_LOGI(TAG,
-             "Bluetooth media stack log level: errors only "
-             "(packet sequence warnings suppressed)");
+             "Bluetooth faults: WARN enabled; %s; compiled HCI/APPL levels=%d/%d",
+             BT_DIAGNOSTIC_VERBOSE_STACK_LOGS ? "every fault line"
+                 : "duplicate fault lines aggregated every 5 s",
+             CONFIG_BT_LOG_HCI_TRACE_LEVEL, CONFIG_BT_LOG_APPL_TRACE_LEVEL);
+    ESP_LOGI(TAG,
+             "Bluetooth config: controller_core=%d, host_core=%d, BTC/BTU_stack_config=%d/%d, "
+             "ACL_connections(controller/host)=%d/%d",
+             CONFIG_BTDM_CTRL_PINNED_TO_CORE, CONFIG_BT_BLUEDROID_PINNED_TO_CORE,
+             CONFIG_BT_BTC_TASK_STACK_SIZE, CONFIG_BT_BTU_TASK_STACK_SIZE,
+             CONFIG_BTDM_CTRL_BR_EDR_MAX_ACL_CONN, CONFIG_BT_ACL_CONNECTIONS);
 
     ESP_ERROR_CHECK(esp_bt_gap_register_callback(gap_event_callback));
 
+#if !BT_DIAGNOSTIC_MINIMAL_MODE
     ESP_LOGI(TAG, "Starting Bluetooth AVRCP Controller before A2DP");
     ESP_ERROR_CHECK(
         esp_avrc_ct_register_callback(avrc_controller_event_callback));
     ESP_ERROR_CHECK(esp_avrc_ct_init());
+#endif
 
     ESP_ERROR_CHECK(esp_a2d_register_callback(a2dp_event_callback));
     ESP_LOGI(TAG, "Starting Bluetooth A2DP Sink");
@@ -562,6 +628,7 @@ static void bluetooth_stack_init(void)
     ESP_LOGI(TAG, "Bluetooth ready: connectable=yes, discoverable=general");
     status_led_set_state(STATUS_LED_DISCOVERABLE);
 
+#if !BT_DIAGNOSTIC_MINIMAL_MODE
     if (have_last_bda)
     {
         BaseType_t result =
@@ -576,10 +643,12 @@ static void bluetooth_stack_init(void)
             status_led_signal_error();
         }
     }
+#endif
 }
 
 esp_err_t bluetooth_audio_init(void)
 {
+#if !BT_DIAGNOSTIC_MINIMAL_MODE
     load_last_bda();
 
     bda_save_queue = xQueueCreate(1, sizeof(esp_bd_addr_t));
@@ -623,6 +692,9 @@ esp_err_t bluetooth_audio_init(void)
              "Task created: bt_rssi, priority=%d, interval=%u ms",
              BT_RSSI_TASK_PRIORITY,
              (unsigned)BT_RSSI_INTERVAL_MS);
+#else
+    ESP_LOGW(TAG, "Minimal Bluetooth mode: AVRCP, reconnect, RSSI and MAC storage tasks disabled");
+#endif
 
     bluetooth_stack_init();
     return ESP_OK;

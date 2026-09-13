@@ -4,6 +4,7 @@
 #include <stdint.h>
 
 #include "app_config.h"
+#include "app_diagnostics.h"
 #include "driver/gpio.h"
 #include "esp_log.h"
 #include "freertos/FreeRTOS.h"
@@ -53,6 +54,7 @@ static void status_led_write(bool on)
 static void status_led_task(void *argument)
 {
     (void)argument;
+    app_diagnostics_track_task(DIAG_TASK_LED);
 
     status_led_state_t previous_state = (status_led_state_t)-1;
     TickType_t pattern_started_at = xTaskGetTickCount();
