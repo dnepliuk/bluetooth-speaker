@@ -1,0 +1,3 @@
+# Combined CPU-frequency and controller-modem-sleep factor change.
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y
+CONFIG_BTDM_CTRL_MODEM_SLEEP=n

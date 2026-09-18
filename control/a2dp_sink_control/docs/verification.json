@@ -1,0 +1,2418 @@
+{
+  "validation_date": "2026-09-18",
+  "matrix_build_date": "2026-09-17",
+  "task": "Official reference CPU frequency x Bluetooth controller modem sleep matrix",
+  "statuses": {
+    "build": "PASS",
+    "config_isolation": "PASS",
+    "verification": "PASS",
+    "hardware_test": "NOT RUN"
+  },
+  "protected_files": 26,
+  "main_unchanged": true,
+  "protected_manifest_sha256": "5a176b3286998d42d8d45712b8f4459d5994797174b58fb472bb1733f24182c1",
+  "baseline_callback_sha256": "ee880c9019981988f1e21dd6e488f2149fbf15f70d42efe1a42351442493ba7f",
+  "baseline_config_matches_working_reference": true,
+  "clocked_and_legacy_regression_checks": {
+    "legacy_application_translation_units_unchanged": 12,
+    "pipeline_producer_identical": true,
+    "clocked_receive_timeout": 0,
+    "steady_state_software_delay": false,
+    "i2s_write_timeout_ms": 1000,
+    "checks": "PASS"
+  },
+  "spsc_and_six_variant_regression_checks": {
+    "checks": "PASS",
+    "strict_elf_checks": "FAIL",
+    "strict_elf_required": false,
+    "spsc_code_and_isolation_checks": "PASS",
+    "previous_translation_units_unchanged": 16,
+    "previous_allocated_elf_section_comparison": {
+      "baseline": {
+        "checks": "PASS",
+        "compared_sections": 7,
+        "changed_sections": {}
+      },
+      "main-config": {
+        "checks": "FAIL",
+        "compared_sections": 7,
+        "changed_sections": {
+          ".dram0.data": {
+            "expected": "da5989fdbdbdf7f6d0010317d7882ecc6d93ee6fd3d657da033658a777685ce2",
+            "actual": "f231f10e43a9be3ddb2e7cf70b631c38234f9e5f6d4ed8a4a2d79269bd4c3569"
+          },
+          ".flash.rodata": {
+            "expected": "9a110db07f4e6e2d9cdd5e409f3900787d724ed769523536873b3cd50ae34b87",
+            "actual": "aac4b55ff02ae516fa5c52fd887874042861c1c960509c5ba1781d33653a066f"
+          },
+          ".flash.tdata": {
+            "expected": "1bd1a1b6008f77bf808a5d1208aabbd38a92aeb0c8d7d3152ab38da08b536212",
+            "actual": "34dd29f537d91ce0fc19a7f685b39c521dc55c1d3d1f4fa124a3587c7df094e4"
+          },
+          ".flash.text": {
+            "expected": "2647db88999a33219069944d65bc675980233938e642df97faf7d2bdc8daf9e3",
+            "actual": "832de1fdcdf9a86702b9cff3e746967cd1a994df9ef0a1ec98a4a1a19f22e339"
+          },
+          ".iram0.text": {
+            "expected": "6a8c6d0478143f2214cbf466c178dea8247a1f768a4ae56e47f1385ca42beb6d",
+            "actual": "392186b4515ee6b89a11fc3e83e3bc78cf69065961d62c407833f1d76f1e13a9"
+          },
+          ".iram0.vectors": {
+            "expected": "1f0b3f5657a6783b5e0a15ca95adf288fde93e2c084e8fcd2136b3cdabec8ecb",
+            "actual": "48f855612d218dc17e1b7e034d416d62bfc3e820842684a0d4164cd0dfa64ca1"
+          }
+        }
+      },
+      "streambuffer": {
+        "checks": "PASS",
+        "compared_sections": 7,
+        "changed_sections": {}
+      },
+      "i2s-silence": {
+        "checks": "FAIL",
+        "compared_sections": 7,
+        "changed_sections": {
+          ".dram0.data": {
+            "expected": "5ae4239fb325bd52a62ef6435b01b856457ab188970715286af94cf40edadd99",
+            "actual": "14848b9d7ef52cfa02924f25d86ce70c43e8aa228f4d496cc03788441698adf4"
+          },
+          ".flash.rodata": {
+            "expected": "425fe004f04b3461705c0b255e0d2a5ba7254f53073e4928f57a634088bbd80e",
+            "actual": "9dea93b88648468275d7d5ebfd95ecd5bff8756afbd7ca67b18ca4e1f8a80432"
+          },
+          ".flash.tdata": {
+            "expected": "e571d6a2f8de661ab6479fb0db4294fbd501b6a7220e80f7a39d3aa1ef84bcd0",
+            "actual": "ef5b61becf3c57c0e47d034d23ee87ed5b60f21e85fad552e048c67e852b34be"
+          },
+          ".flash.text": {
+            "expected": "3ef69574bf9fcd2100cbdb49262aa94322a9698afe86a14a68880fb573bd0b5b",
+            "actual": "1f4aacf22c41350e98b701fabcd4913e1baa17222cc55a89a5c93965aa9a652f"
+          },
+          ".iram0.text": {
+            "expected": "8b9716e7481703e4b66464ab8efc97f49861628fca5545d3a96dc63ca57f0f39",
+            "actual": "098dada914ca1005a8c80a2aca3d5bc58f06cb1382814d0663a85f41c97fee39"
+          },
+          ".iram0.vectors": {
+            "expected": "b25ce66fa1f18a4886aa36bbf38aefedac119096bdd9177072ea9d51109232a5",
+            "actual": "b239227d843967596ed6cc9d515202c7ffe4c5fc590979ec56d704e10ba6c0bf"
+          }
+        }
+      },
+      "pipeline": {
+        "checks": "FAIL",
+        "compared_sections": 7,
+        "changed_sections": {
+          ".dram0.data": {
+            "expected": "448a721a680cc047ad1bc78f1ad968584ae498399e6806c941e5e65ecbdb34f4",
+            "actual": "871f136d32f2824852c318e332a1f557916e39552aaa7d9a8b048e979c91b5a6"
+          },
+          ".flash.rodata": {
+            "expected": "4b49ccabd969423b2ff0c2029b972bd86b91af4313d78953379263d0910f59b3",
+            "actual": "fe857ba55365be4c19771865efdaf0017d7476b21d6aeb6cb953fec22133f6a9"
+          },
+          ".flash.tdata": {
+            "expected": "ef5b61becf3c57c0e47d034d23ee87ed5b60f21e85fad552e048c67e852b34be",
+            "actual": "8033f7730edb69f9a49e330ad47a39a6539c7b8778f6dc81aa9f1dd96ce0c2a4"
+          },
+          ".flash.text": {
+            "expected": "9cdb11c33ffa94361de3e4fc748bdd76f2dde11d22a0918e90b11146b2f33da2",
+            "actual": "95d558286fd41b1ddb440d733943a6b72a3afb0213a803bcccf5eb268e202d6c"
+          },
+          ".iram0.text": {
+            "expected": "8d83f00d27cac9cc96f152f3d07dfd590581b06737e53dfbb7f1b41f607e434b",
+            "actual": "3bfb9317a8af7b20ccc96841776f1d24851d62eda17f39912370105e9ece1536"
+          },
+          ".iram0.vectors": {
+            "expected": "6c90f1d4e0692d5bd8813b1692b04e918e9e3620e10d89cee748d3e78d8b55e1",
+            "actual": "e6475832deef14e7bc65984493d65b715189bed299e29839cb8caccb62021be4"
+          }
+        }
+      },
+      "clocked-pipeline": {
+        "checks": "PASS",
+        "compared_sections": 7,
+        "changed_sections": {}
+      }
+    },
+    "elf_exclusion": ".flash.appdesc only (build date/time and ELF hash)",
+    "bluetooth_and_pcm_callback_identical": true,
+    "clocked_writer_identical_after_buffer_substitution": true,
+    "i2s_translation_unit_identical": true,
+    "no_streambuffer_calls_in_preprocessed_application_functions": true,
+    "no_streambuffer_symbols_in_elf": true,
+    "sdk_streambuffer_declarations_in_main_preprocessing": 25,
+    "ring_capacity": 32768,
+    "ring_internal_dram_address": "0x3ffbe72c",
+    "ring_undefined_symbols": [
+      "esp_timer_get_time",
+      "memcpy"
+    ],
+    "xtensa_memw_present": true,
+    "ring_atomic_helpers_or_retry_loops": false
+  },
+  "aligned_and_seven_variant_regression_checks": {
+    "checks": "PASS",
+    "strict_elf_required": false,
+    "source_preprocessed_checks": "PASS",
+    "semantic_checks": "PASS",
+    "previous_preprocessed_units_unchanged": 20,
+    "previous_seven_sdkconfigs_unchanged": true,
+    "sdkconfig_7_and_8_semantically_identical": true,
+    "audio_contracts": {
+      "spsc-pipeline": {
+        "CONTROL_CHUNK_BYTES": 4096,
+        "CONTROL_FRAME_BYTES": 4,
+        "CONTROL_STREAM_BYTES": 32768,
+        "CONTROL_PREFILL_BYTES": 8192,
+        "CONTROL_DMA_DESCRIPTORS": 3,
+        "CONTROL_DMA_FRAMES": 960,
+        "CONTROL_WRITER_PRIORITY": 22,
+        "CONTROL_WRITER_CORE": 1,
+        "CONTROL_WRITER_STACK": 8192,
+        "CONTROL_SAMPLE_RATE": 44100,
+        "CONTROL_WRITE_TIMEOUT_MS": 1000
+      },
+      "spsc-dma-aligned": {
+        "CONTROL_CHUNK_BYTES": 3840,
+        "CONTROL_FRAME_BYTES": 4,
+        "CONTROL_STREAM_BYTES": 32768,
+        "CONTROL_PREFILL_BYTES": 8192,
+        "CONTROL_DMA_DESCRIPTORS": 3,
+        "CONTROL_DMA_FRAMES": 960,
+        "CONTROL_WRITER_PRIORITY": 22,
+        "CONTROL_WRITER_CORE": 1,
+        "CONTROL_WRITER_STACK": 8192,
+        "CONTROL_SAMPLE_RATE": 44100,
+        "CONTROL_WRITE_TIMEOUT_MS": 1000
+      }
+    },
+    "sole_functional_difference": "CONTROL_CHUNK_BYTES: 4096 -> 3840",
+    "ring_and_i2s_loadable_object_sections_identical": true,
+    "transport_identical_except_chunk_and_one_boot_log": true,
+    "pcm_callback_producer_and_aggregate_logs_identical": true,
+    "no_streambuffer_in_aligned_elf": true,
+    "strict_elf_checks": "FAIL",
+    "previous_allocated_elf_section_comparison": {
+      "baseline": {
+        "checks": "PASS",
+        "changed_sections": {}
+      },
+      "main-config": {
+        "checks": "FAIL",
+        "changed_sections": {
+          ".dram0.data": {
+            "expected": "da5989fdbdbdf7f6d0010317d7882ecc6d93ee6fd3d657da033658a777685ce2",
+            "actual": "f231f10e43a9be3ddb2e7cf70b631c38234f9e5f6d4ed8a4a2d79269bd4c3569"
+          },
+          ".flash.rodata": {
+            "expected": "9a110db07f4e6e2d9cdd5e409f3900787d724ed769523536873b3cd50ae34b87",
+            "actual": "aac4b55ff02ae516fa5c52fd887874042861c1c960509c5ba1781d33653a066f"
+          },
+          ".flash.tdata": {
+            "expected": "1bd1a1b6008f77bf808a5d1208aabbd38a92aeb0c8d7d3152ab38da08b536212",
+            "actual": "34dd29f537d91ce0fc19a7f685b39c521dc55c1d3d1f4fa124a3587c7df094e4"
+          },
+          ".flash.text": {
+            "expected": "2647db88999a33219069944d65bc675980233938e642df97faf7d2bdc8daf9e3",
+            "actual": "832de1fdcdf9a86702b9cff3e746967cd1a994df9ef0a1ec98a4a1a19f22e339"
+          },
+          ".iram0.text": {
+            "expected": "6a8c6d0478143f2214cbf466c178dea8247a1f768a4ae56e47f1385ca42beb6d",
+            "actual": "392186b4515ee6b89a11fc3e83e3bc78cf69065961d62c407833f1d76f1e13a9"
+          },
+          ".iram0.vectors": {
+            "expected": "1f0b3f5657a6783b5e0a15ca95adf288fde93e2c084e8fcd2136b3cdabec8ecb",
+            "actual": "48f855612d218dc17e1b7e034d416d62bfc3e820842684a0d4164cd0dfa64ca1"
+          }
+        }
+      },
+      "streambuffer": {
+        "checks": "PASS",
+        "changed_sections": {}
+      },
+      "i2s-silence": {
+        "checks": "PASS",
+        "changed_sections": {}
+      },
+      "pipeline": {
+        "checks": "FAIL",
+        "changed_sections": {
+          ".dram0.data": {
+            "expected": "448a721a680cc047ad1bc78f1ad968584ae498399e6806c941e5e65ecbdb34f4",
+            "actual": "871f136d32f2824852c318e332a1f557916e39552aaa7d9a8b048e979c91b5a6"
+          },
+          ".flash.rodata": {
+            "expected": "4b49ccabd969423b2ff0c2029b972bd86b91af4313d78953379263d0910f59b3",
+            "actual": "fe857ba55365be4c19771865efdaf0017d7476b21d6aeb6cb953fec22133f6a9"
+          },
+          ".flash.tdata": {
+            "expected": "ef5b61becf3c57c0e47d034d23ee87ed5b60f21e85fad552e048c67e852b34be",
+            "actual": "8033f7730edb69f9a49e330ad47a39a6539c7b8778f6dc81aa9f1dd96ce0c2a4"
+          },
+          ".flash.text": {
+            "expected": "9cdb11c33ffa94361de3e4fc748bdd76f2dde11d22a0918e90b11146b2f33da2",
+            "actual": "95d558286fd41b1ddb440d733943a6b72a3afb0213a803bcccf5eb268e202d6c"
+          },
+          ".iram0.text": {
+            "expected": "8d83f00d27cac9cc96f152f3d07dfd590581b06737e53dfbb7f1b41f607e434b",
+            "actual": "3bfb9317a8af7b20ccc96841776f1d24851d62eda17f39912370105e9ece1536"
+          },
+          ".iram0.vectors": {
+            "expected": "6c90f1d4e0692d5bd8813b1692b04e918e9e3620e10d89cee748d3e78d8b55e1",
+            "actual": "e6475832deef14e7bc65984493d65b715189bed299e29839cb8caccb62021be4"
+          }
+        }
+      },
+      "clocked-pipeline": {
+        "checks": "FAIL",
+        "changed_sections": {
+          ".dram0.data": {
+            "expected": "fb067a71340bca16c9cf9ce7cdcfeff26379e32f83e44eef891bf200bfbc9d7d",
+            "actual": "32d86a156997072bb6118f716c5cfc644919cd18ce4b8b0380706ce99bd15dab"
+          },
+          ".flash.rodata": {
+            "expected": "d549ecfa33bcfd371e5f0e2066566e6d23eb44139578af09853a9b3818a9d967",
+            "actual": "835138ee4511215b4ccbbcf8630c229055de0dd5636622e5c1b7c6e0656de943"
+          },
+          ".flash.text": {
+            "expected": "e5eef3fc76d039d90bb804d8029e645d2cd1d2c751413387d285204bbf7729d2",
+            "actual": "5bb10575e6a668eb6ce9f5df6c8e8e98f222647039baa2bc1febfe6d71168197"
+          },
+          ".iram0.text": {
+            "expected": "d979ffdbe19b76401b8107f760b507e92548d2e53e5c1b88620c4572b6a77d46",
+            "actual": "09818cd6c765f9c12d8a0b67207a5d03f12920430a0b19f0f61224452b4d9a42"
+          }
+        }
+      },
+      "spsc-pipeline": {
+        "checks": "FAIL",
+        "changed_sections": {
+          ".dram0.data": {
+            "expected": "67f3043cbb881f5e8fd9dea3f732385f8f59c2a9b011266c27a695d1e500f6b0",
+            "actual": "27f5823b5dfd23a1186a63ca9b255b459b2b42b013935950f600805e8e2ad60c"
+          },
+          ".flash.rodata": {
+            "expected": "0b760d1c289e58c8734d964eeb8c0089498fc1c54cecd2678b40287f1036ab6c",
+            "actual": "a73a17fa0d68ae96bd433150a01261e28f12aa647de5e2f1e6f05795889766d0"
+          },
+          ".flash.tdata": {
+            "expected": "8033f7730edb69f9a49e330ad47a39a6539c7b8778f6dc81aa9f1dd96ce0c2a4",
+            "actual": "ef5b61becf3c57c0e47d034d23ee87ed5b60f21e85fad552e048c67e852b34be"
+          },
+          ".flash.text": {
+            "expected": "991fd685b0dfa11a595918d924deef0a66148e6c36e67bbd495818b7a85996eb",
+            "actual": "95f18c375826682e514a6b4fb013ed99eba0c6e715624b115b878f599df53d75"
+          },
+          ".iram0.text": {
+            "expected": "456f822925924e885415d86c2830258694b2bdbccdfa0ee427d4147b34bfa827",
+            "actual": "bd369a1816228eed8c507e733dda2bd10360371608001c5f879d398ed5095c66"
+          },
+          ".iram0.vectors": {
+            "expected": "b25ce66fa1f18a4886aa36bbf38aefedac119096bdd9177072ea9d51109232a5",
+            "actual": "b239227d843967596ed6cc9d515202c7ffe4c5fc590979ec56d704e10ba6c0bf"
+          }
+        }
+      }
+    },
+    "elf_exclusion": ".flash.appdesc only; mismatch remains FAIL, without implying a source change",
+    "hardware": "Historical aligned FAIL reported by user; no hardware run by agent"
+  },
+  "official_and_eight_variant_regression_checks": {
+    "checks": "PASS",
+    "previous_preprocessed_units_unchanged": 24,
+    "previous_eight_sdkconfigs_unchanged": true,
+    "old_transport_sources_unchanged": true,
+    "normative_idf_sources_unchanged": true,
+    "full_sdkconfig_matches_aligned": true,
+    "bluetooth_init_and_pairing_preserved": true,
+    "compiled_parameters": {
+      "OFFICIAL_RING_BYTES": 32768,
+      "OFFICIAL_PREFETCH_BYTES": 20480,
+      "OFFICIAL_WRITE_UPTO": 1440,
+      "OFFICIAL_READ_TIMEOUT_MS": 20,
+      "OFFICIAL_WRITER_STACK": 4096,
+      "OFFICIAL_WRITER_PRIORITY": 22,
+      "OFFICIAL_STATS_PERIOD_MS": 5000,
+      "OFFICIAL_BCK": 26,
+      "OFFICIAL_WS": 25,
+      "OFFICIAL_DATA": 22,
+      "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ": 160,
+      "CONFIG_BTDM_CTRL_MODEM_SLEEP": 1,
+      "dma_desc_num": 6,
+      "dma_frame_num": 240,
+      "intr_priority": 0
+    },
+    "callback_bounded_no_timer_lock_alloc_write_log": true,
+    "atomics_inline_load_store_no_helpers_or_rmw": true,
+    "custom_transport_symbols_absent": true,
+    "cooperative_close_order": true,
+    "hardware": "NOT RUN in current matrix; historical reference FAIL reported by user",
+    "elf_identity_required": false
+  },
+  "official_cpu_sleep_matrix_checks": {
+    "checks": "PASS",
+    "build_config_isolation": "PASS",
+    "old_preprocessed_units_unchanged": 24,
+    "old_nine_sdkconfigs_unchanged": true,
+    "official_main_source_unchanged": true,
+    "service_changed_only_at_startup": true,
+    "all_nonstartup_function_bodies_identical_across_matrix": true,
+    "runtime_sleep_override_absent": true,
+    "runtime_clock_switching_or_pm_locks_added": false,
+    "public_cpu_clock_read_only_once_at_startup": true,
+    "root_hardware_status": "NOT RUN",
+    "elf_identity_required": false,
+    "environments": [
+      {
+        "environment": "control-official-i2s-reference",
+        "checks": "PASS",
+        "cpu_config_mhz": 160,
+        "bt_modem_sleep_config": "enabled",
+        "sdkconfig": "sdkconfig.control-official-i2s-reference",
+        "defaults": "sdkconfig.official-160-sleep.defaults",
+        "build_directory": ".pio/build/control-official-i2s-reference",
+        "config_diff": {},
+        "compiled_parameters": {
+          "OFFICIAL_RING_BYTES": 32768,
+          "OFFICIAL_PREFETCH_BYTES": 20480,
+          "OFFICIAL_WRITE_UPTO": 1440,
+          "OFFICIAL_READ_TIMEOUT_MS": 20,
+          "OFFICIAL_WRITER_STACK": 4096,
+          "OFFICIAL_WRITER_PRIORITY": 22,
+          "OFFICIAL_STATS_PERIOD_MS": 5000,
+          "OFFICIAL_BCK": 26,
+          "OFFICIAL_WS": 25,
+          "OFFICIAL_DATA": 22,
+          "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ": 160,
+          "CONFIG_BTDM_CTRL_MODEM_SLEEP": 1,
+          "dma_desc_num": 6,
+          "dma_frame_num": 240,
+          "intr_priority": 0
+        },
+        "unique_banner_in_elf": true,
+        "hardware_test": "NOT RUN"
+      },
+      {
+        "environment": "control-official-160-nosleep",
+        "checks": "PASS",
+        "cpu_config_mhz": 160,
+        "bt_modem_sleep_config": "disabled",
+        "sdkconfig": "sdkconfig.control-official-160-nosleep",
+        "defaults": "sdkconfig.official-160-nosleep.defaults",
+        "build_directory": ".pio/build/control-official-160-nosleep",
+        "config_diff": {
+          "CONFIG_BTDM_CONTROLLER_MODEM_SLEEP": {
+            "reference": "1",
+            "actual": "0"
+          },
+          "CONFIG_BTDM_CTRL_LPCLK_SEL_MAIN_XTAL": {
+            "reference": "1",
+            "actual": "0"
+          },
+          "CONFIG_BTDM_CTRL_MODEM_SLEEP": {
+            "reference": "1",
+            "actual": "0"
+          },
+          "CONFIG_BTDM_CTRL_MODEM_SLEEP_MODE_ORIG": {
+            "reference": "1",
+            "actual": "0"
+          }
+        },
+        "compiled_parameters": {
+          "OFFICIAL_RING_BYTES": 32768,
+          "OFFICIAL_PREFETCH_BYTES": 20480,
+          "OFFICIAL_WRITE_UPTO": 1440,
+          "OFFICIAL_READ_TIMEOUT_MS": 20,
+          "OFFICIAL_WRITER_STACK": 4096,
+          "OFFICIAL_WRITER_PRIORITY": 22,
+          "OFFICIAL_STATS_PERIOD_MS": 5000,
+          "OFFICIAL_BCK": 26,
+          "OFFICIAL_WS": 25,
+          "OFFICIAL_DATA": 22,
+          "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ": 160,
+          "CONFIG_BTDM_CTRL_MODEM_SLEEP": 0,
+          "dma_desc_num": 6,
+          "dma_frame_num": 240,
+          "intr_priority": 0
+        },
+        "unique_banner_in_elf": true,
+        "hardware_test": "NOT RUN"
+      },
+      {
+        "environment": "control-official-240-sleep",
+        "checks": "PASS",
+        "cpu_config_mhz": 240,
+        "bt_modem_sleep_config": "enabled",
+        "sdkconfig": "sdkconfig.control-official-240-sleep",
+        "defaults": "sdkconfig.official-240-sleep.defaults",
+        "build_directory": ".pio/build/control-official-240-sleep",
+        "config_diff": {
+          "CONFIG_ESP32_DEFAULT_CPU_FREQ_160": {
+            "reference": "1",
+            "actual": "0"
+          },
+          "CONFIG_ESP32_DEFAULT_CPU_FREQ_240": {
+            "reference": "0",
+            "actual": "1"
+          },
+          "CONFIG_ESP32_DEFAULT_CPU_FREQ_MHZ": {
+            "reference": "160",
+            "actual": "240"
+          },
+          "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ": {
+            "reference": "160",
+            "actual": "240"
+          },
+          "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_160": {
+            "reference": "1",
+            "actual": "0"
+          },
+          "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240": {
+            "reference": "0",
+            "actual": "1"
+          }
+        },
+        "compiled_parameters": {
+          "OFFICIAL_RING_BYTES": 32768,
+          "OFFICIAL_PREFETCH_BYTES": 20480,
+          "OFFICIAL_WRITE_UPTO": 1440,
+          "OFFICIAL_READ_TIMEOUT_MS": 20,
+          "OFFICIAL_WRITER_STACK": 4096,
+          "OFFICIAL_WRITER_PRIORITY": 22,
+          "OFFICIAL_STATS_PERIOD_MS": 5000,
+          "OFFICIAL_BCK": 26,
+          "OFFICIAL_WS": 25,
+          "OFFICIAL_DATA": 22,
+          "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ": 240,
+          "CONFIG_BTDM_CTRL_MODEM_SLEEP": 1,
+          "dma_desc_num": 6,
+          "dma_frame_num": 240,
+          "intr_priority": 0
+        },
+        "unique_banner_in_elf": true,
+        "hardware_test": "NOT RUN"
+      },
+      {
+        "environment": "control-official-240-nosleep",
+        "checks": "PASS",
+        "cpu_config_mhz": 240,
+        "bt_modem_sleep_config": "disabled",
+        "sdkconfig": "sdkconfig.control-official-240-nosleep",
+        "defaults": "sdkconfig.official-240-nosleep.defaults",
+        "build_directory": ".pio/build/control-official-240-nosleep",
+        "config_diff": {
+          "CONFIG_BTDM_CONTROLLER_MODEM_SLEEP": {
+            "reference": "1",
+            "actual": "0"
+          },
+          "CONFIG_BTDM_CTRL_LPCLK_SEL_MAIN_XTAL": {
+            "reference": "1",
+            "actual": "0"
+          },
+          "CONFIG_BTDM_CTRL_MODEM_SLEEP": {
+            "reference": "1",
+            "actual": "0"
+          },
+          "CONFIG_BTDM_CTRL_MODEM_SLEEP_MODE_ORIG": {
+            "reference": "1",
+            "actual": "0"
+          },
+          "CONFIG_ESP32_DEFAULT_CPU_FREQ_160": {
+            "reference": "1",
+            "actual": "0"
+          },
+          "CONFIG_ESP32_DEFAULT_CPU_FREQ_240": {
+            "reference": "0",
+            "actual": "1"
+          },
+          "CONFIG_ESP32_DEFAULT_CPU_FREQ_MHZ": {
+            "reference": "160",
+            "actual": "240"
+          },
+          "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ": {
+            "reference": "160",
+            "actual": "240"
+          },
+          "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_160": {
+            "reference": "1",
+            "actual": "0"
+          },
+          "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240": {
+            "reference": "0",
+            "actual": "1"
+          }
+        },
+        "compiled_parameters": {
+          "OFFICIAL_RING_BYTES": 32768,
+          "OFFICIAL_PREFETCH_BYTES": 20480,
+          "OFFICIAL_WRITE_UPTO": 1440,
+          "OFFICIAL_READ_TIMEOUT_MS": 20,
+          "OFFICIAL_WRITER_STACK": 4096,
+          "OFFICIAL_WRITER_PRIORITY": 22,
+          "OFFICIAL_STATS_PERIOD_MS": 5000,
+          "OFFICIAL_BCK": 26,
+          "OFFICIAL_WS": 25,
+          "OFFICIAL_DATA": 22,
+          "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ": 240,
+          "CONFIG_BTDM_CTRL_MODEM_SLEEP": 0,
+          "dma_desc_num": 6,
+          "dma_frame_num": 240,
+          "intr_priority": 0
+        },
+        "unique_banner_in_elf": true,
+        "hardware_test": "NOT RUN"
+      }
+    ]
+  },
+  "selector_positive_and_negative_checks": "PASS",
+  "environments": [
+    {
+      "environment": "control-baseline",
+      "checks": "PASS",
+      "banner": "CONTROL variant=baseline",
+      "firmware_sha256": "65ab52565655ba3d043c8d2d2bdf84a65bf406dc30f514500f5a83638a2dd514",
+      "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113"
+    },
+    {
+      "environment": "control-main-config",
+      "checks": "PASS",
+      "banner": "CONTROL variant=main-config",
+      "firmware_sha256": "a900fe14bbf15cdb2699b0fa6d7ec1f22591949b830758078dd627531ed4006d",
+      "sdkconfig_semantic_sha256": "57af2a26582a4efe5cd210450a23fbf1b44b50e610852edb11f61685c6d51e56"
+    },
+    {
+      "environment": "control-streambuffer",
+      "checks": "PASS",
+      "banner": "CONTROL variant=streambuffer",
+      "firmware_sha256": "683efd7946ad57fb09e6b5b29ff970164d155ce796f19cf992cac407b466c72f",
+      "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113"
+    },
+    {
+      "environment": "control-i2s-silence",
+      "checks": "PASS",
+      "banner": "CONTROL variant=i2s-silence",
+      "firmware_sha256": "e8b5b9cd3a9b7252615bca669e263d1a370a7dda3fb513b7920106c63e5e4c52",
+      "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113"
+    },
+    {
+      "environment": "control-pipeline",
+      "checks": "PASS",
+      "banner": "CONTROL variant=pipeline",
+      "firmware_sha256": "88f7df4608cf4208c98e0947f11ab4f80116b8cc9462f9b5985676c7c175c902",
+      "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113"
+    },
+    {
+      "environment": "control-clocked-pipeline",
+      "checks": "PASS",
+      "banner": "CONTROL variant=clocked-pipeline",
+      "firmware_sha256": "fb88ed77c9cf7face2caa3f338256a5b8f3a3af31068f3aa0abc2a59a66f7eac",
+      "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113"
+    },
+    {
+      "environment": "control-spsc-pipeline",
+      "checks": "PASS",
+      "banner": "CONTROL variant=spsc-pipeline",
+      "firmware_sha256": "62f41b899917165e1e0644ecba09a3d7e0d46ad537943e2932ce2ba267612239",
+      "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113"
+    },
+    {
+      "environment": "control-spsc-dma-aligned",
+      "checks": "PASS",
+      "banner": "CONTROL variant=spsc-dma-aligned",
+      "firmware_sha256": "44c59b34460cae08a628abedd3781b46e558f2538cd926445696cda6678dff1e",
+      "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113"
+    },
+    {
+      "environment": "control-official-i2s-reference",
+      "checks": "PASS",
+      "banner": "CONTROL variant=official-i2s-reference",
+      "firmware_sha256": "5cd2115fe633ed7f4e09503241704ebf2950e41da9da064f0594b309af7d43d7",
+      "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113"
+    }
+  ],
+  "hardware_tests": "Historical user reports: baseline/main-config/streambuffer/i2s-silence PASS; pipeline/clocked/SPSC/aligned/official-reference FAIL. CPU/sleep matrix hardware NOT RUN. No Upload or Monitor by the agent.",
+  "matrix_builds_and_reference_repeat": [
+    {
+      "environment": "control-official-i2s-reference",
+      "exit_code": 0,
+      "log": ".pio/matrix-audit/build-1-control-official-i2s-reference.log",
+      "unrelated_sdkconfig_files_changed": [],
+      "changed_sdkconfig_files": [],
+      "config_diff": {},
+      "checks": "PASS",
+      "ram_bytes": 54528,
+      "flash_bytes": 759545
+    },
+    {
+      "environment": "control-official-160-nosleep",
+      "exit_code": 0,
+      "log": ".pio/matrix-audit/build-2-control-official-160-nosleep.log",
+      "unrelated_sdkconfig_files_changed": [],
+      "changed_sdkconfig_files": [],
+      "config_diff": {
+        "CONFIG_BTDM_CONTROLLER_MODEM_SLEEP": {
+          "reference": "1",
+          "actual": "0"
+        },
+        "CONFIG_BTDM_CTRL_LPCLK_SEL_MAIN_XTAL": {
+          "reference": "1",
+          "actual": "0"
+        },
+        "CONFIG_BTDM_CTRL_MODEM_SLEEP": {
+          "reference": "1",
+          "actual": "0"
+        },
+        "CONFIG_BTDM_CTRL_MODEM_SLEEP_MODE_ORIG": {
+          "reference": "1",
+          "actual": "0"
+        }
+      },
+      "checks": "PASS",
+      "ram_bytes": 54528,
+      "flash_bytes": 758273
+    },
+    {
+      "environment": "control-official-240-sleep",
+      "exit_code": 0,
+      "log": ".pio/matrix-audit/build-3-control-official-240-sleep.log",
+      "unrelated_sdkconfig_files_changed": [],
+      "changed_sdkconfig_files": [],
+      "config_diff": {
+        "CONFIG_ESP32_DEFAULT_CPU_FREQ_160": {
+          "reference": "1",
+          "actual": "0"
+        },
+        "CONFIG_ESP32_DEFAULT_CPU_FREQ_240": {
+          "reference": "0",
+          "actual": "1"
+        },
+        "CONFIG_ESP32_DEFAULT_CPU_FREQ_MHZ": {
+          "reference": "160",
+          "actual": "240"
+        },
+        "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ": {
+          "reference": "160",
+          "actual": "240"
+        },
+        "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_160": {
+          "reference": "1",
+          "actual": "0"
+        },
+        "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240": {
+          "reference": "0",
+          "actual": "1"
+        }
+      },
+      "checks": "PASS",
+      "ram_bytes": 54528,
+      "flash_bytes": 759561
+    },
+    {
+      "environment": "control-official-240-nosleep",
+      "exit_code": 0,
+      "log": ".pio/matrix-audit/build-4-control-official-240-nosleep.log",
+      "unrelated_sdkconfig_files_changed": [],
+      "changed_sdkconfig_files": [],
+      "config_diff": {
+        "CONFIG_BTDM_CONTROLLER_MODEM_SLEEP": {
+          "reference": "1",
+          "actual": "0"
+        },
+        "CONFIG_BTDM_CTRL_LPCLK_SEL_MAIN_XTAL": {
+          "reference": "1",
+          "actual": "0"
+        },
+        "CONFIG_BTDM_CTRL_MODEM_SLEEP": {
+          "reference": "1",
+          "actual": "0"
+        },
+        "CONFIG_BTDM_CTRL_MODEM_SLEEP_MODE_ORIG": {
+          "reference": "1",
+          "actual": "0"
+        },
+        "CONFIG_ESP32_DEFAULT_CPU_FREQ_160": {
+          "reference": "1",
+          "actual": "0"
+        },
+        "CONFIG_ESP32_DEFAULT_CPU_FREQ_240": {
+          "reference": "0",
+          "actual": "1"
+        },
+        "CONFIG_ESP32_DEFAULT_CPU_FREQ_MHZ": {
+          "reference": "160",
+          "actual": "240"
+        },
+        "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ": {
+          "reference": "160",
+          "actual": "240"
+        },
+        "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_160": {
+          "reference": "1",
+          "actual": "0"
+        },
+        "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240": {
+          "reference": "0",
+          "actual": "1"
+        }
+      },
+      "checks": "PASS",
+      "ram_bytes": 54528,
+      "flash_bytes": 758709
+    },
+    {
+      "environment": "control-official-i2s-reference",
+      "exit_code": 0,
+      "log": ".pio/matrix-audit/build-5-control-official-i2s-reference.log",
+      "unrelated_sdkconfig_files_changed": [],
+      "changed_sdkconfig_files": [],
+      "config_diff": {},
+      "checks": "PASS",
+      "ram_bytes": 54528,
+      "flash_bytes": 759545
+    }
+  ],
+  "legacy_regression_builds": [
+    {
+      "environment": "control-baseline",
+      "exit_code": 0,
+      "log": ".pio/matrix-audit/regression-build-control-baseline.log",
+      "unrelated_sdkconfig_files_changed": [],
+      "changed_sdkconfig_files": []
+    },
+    {
+      "environment": "control-main-config",
+      "exit_code": 0,
+      "log": ".pio/matrix-audit/regression-build-control-main-config.log",
+      "unrelated_sdkconfig_files_changed": [],
+      "changed_sdkconfig_files": []
+    },
+    {
+      "environment": "control-streambuffer",
+      "exit_code": 0,
+      "log": ".pio/matrix-audit/regression-build-control-streambuffer.log",
+      "unrelated_sdkconfig_files_changed": [],
+      "changed_sdkconfig_files": []
+    },
+    {
+      "environment": "control-i2s-silence",
+      "exit_code": 0,
+      "log": ".pio/matrix-audit/regression-build-control-i2s-silence.log",
+      "unrelated_sdkconfig_files_changed": [],
+      "changed_sdkconfig_files": []
+    },
+    {
+      "environment": "control-pipeline",
+      "exit_code": 0,
+      "log": ".pio/matrix-audit/regression-build-control-pipeline.log",
+      "unrelated_sdkconfig_files_changed": [],
+      "changed_sdkconfig_files": []
+    },
+    {
+      "environment": "control-clocked-pipeline",
+      "exit_code": 0,
+      "log": ".pio/matrix-audit/regression-build-control-clocked-pipeline.log",
+      "unrelated_sdkconfig_files_changed": [],
+      "changed_sdkconfig_files": []
+    },
+    {
+      "environment": "control-spsc-pipeline",
+      "exit_code": 0,
+      "log": ".pio/matrix-audit/regression-build-control-spsc-pipeline.log",
+      "unrelated_sdkconfig_files_changed": [],
+      "changed_sdkconfig_files": []
+    },
+    {
+      "environment": "control-spsc-dma-aligned",
+      "exit_code": 0,
+      "log": ".pio/matrix-audit/regression-build-control-spsc-dma-aligned.log",
+      "unrelated_sdkconfig_files_changed": [],
+      "changed_sdkconfig_files": []
+    }
+  ],
+  "matrix_config_isolation": {
+    "checks": "PASS",
+    "generated_config_and_header_parity": true,
+    "unrelated_config_changes_during_each_build": [],
+    "reference_repeat_settings_identical": true,
+    "different_config_and_build_paths": true,
+    "config_diff_key_counts_vs_reference": {
+      "160_OFF": 4,
+      "240_ON": 6,
+      "240_OFF": 10
+    },
+    "explanation": "CPU choice, derived MHz and legacy aliases; modem sleep, dependent ORIG/LPCLK selection and legacy alias. All other settings unchanged.",
+    "original_nine_config_semantics_unchanged": true,
+    "original_eight_nonofficial_config_files_byte_identical": true,
+    "reference_raw_file_change": "Kconfig removed four # default: comments after CPU/sleep were made explicit. Values and all other bytes unchanged.",
+    "ignored_detailed_build_audit": ".pio/matrix-audit/build-sequence.json"
+  },
+  "matrix_guard_tests": {
+    "checks": "PASS",
+    "cases": 28,
+    "coverage": "All four profiles: valid, stale CPU/sleep/header, unrelated PM, shared config/build paths",
+    "configuration_files_modified_by_guard": false
+  },
+  "official_host_runtime_tests": {
+    "checks": "PASS",
+    "exit_code": 0,
+    "validation_date": "2026-09-18",
+    "command": "tools/verify_official_runtime.py --zig .pio/host-tools/ziglang/zig.exe",
+    "observed_passes": [
+      "prefetch/re-prefetch, wrap/order, no zero padding",
+      "whole-packet overflow, threshold exit packet dropped",
+      "I2S error/short counters, no tail retry",
+      "44.1/48 kHz, mono/stereo, live codec restart",
+      "close waits for in-flight writer, callback and stats reader",
+      "partial initialization failures, 32 reconnects, output after close"
+    ],
+    "target": "Production control_official_i2s.c, Windows threads, API adapters",
+    "limits": "Does not validate real FreeRTOS RingBuffer/scheduling, Bluetooth, DMA or board behavior."
+  },
+  "spsc_host_runtime_tests": {
+    "checks": "PASS",
+    "exit_code": 0,
+    "validation_date": "2026-09-17",
+    "command": "tools/verify_spsc_runtime.py --zig .pio/host-tools/ziglang/zig.exe",
+    "variants": [
+      7,
+      8
+    ],
+    "output_bytes": [
+      4096,
+      3840
+    ],
+    "compiler": "Zig 0.14.1",
+    "observed_passes": [
+      "boundary/alignment/full/partial, uint32 rollover",
+      "100000 FIFO oracle steps, in-flight publication/discard",
+      "8000000 ordered stereo frames across two threads",
+      "wrap, partial reads, alignment, rollover, overflow, finite-prefix flush"
+    ],
+    "limits": "Does not execute Bluetooth, I2S, ESP32 memory ordering or scheduler."
+  },
+  "verification_execution": {
+    "command": [
+      "C:\\Users\\1dima\\.platformio\\penv\\Scripts\\python.exe",
+      "tools/verify_ab.py"
+    ],
+    "exit_code": 0,
+    "stdout": ".pio/matrix-audit/verify_ab.stdout.json",
+    "stderr": ".pio/matrix-audit/verify_ab.stderr.log"
+  },
+  "script_results": {
+    "verify_ab": {
+      "checks": "PASS",
+      "exit_code": 0,
+      "includes": [
+        "verify_clocked",
+        "verify_spsc",
+        "verify_aligned",
+        "verify_official",
+        "verify_matrix"
+      ]
+    },
+    "test_matrix_guard": {
+      "checks": "PASS",
+      "exit_code": 0
+    },
+    "verify_official_runtime": {
+      "checks": "PASS",
+      "exit_code": 0
+    },
+    "verify_spsc_runtime": {
+      "checks": "PASS",
+      "exit_code": 0,
+      "variants": [
+        7,
+        8
+      ]
+    }
+  },
+  "execution_incidents": [
+    {
+      "stage": "Initial 240/OFF firmware build",
+      "error": "Windows Application Control, code 4551, compiler child process",
+      "resolution": "Same build commands retried without security, SDK or firmware changes; final full sequence passed.",
+      "log": ".pio/matrix-audit/windows-application-control-failure.log"
+    },
+    {
+      "stage": "Official host runtime test on 2026-09-17",
+      "error": "Windows Application Control blocked test_official.exe, WinError 4551",
+      "resolution": "The same test passed in the resumed 2026-09-18 session. No policy, toolchain or test-code workaround."
+    },
+    {
+      "stage": "Legacy regression build on 2026-09-17",
+      "error": "Session interrupted while linking StreamBuffer firmware",
+      "resolution": "Resumed remaining builds on 2026-09-18; completed build results retained.",
+      "log": ".pio/matrix-audit/interrupted-streambuffer-build.log"
+    }
+  ],
+  "strict_elf_checks": {
+    "spsc_historical_comparison": "FAIL",
+    "aligned_historical_comparison": "FAIL"
+  },
+  "elf_identity_required": false,
+  "elf_policy": "No equality requirement across different CPU/sleep profiles. Existing historical mismatches remain reported and expected hashes were not rewritten.",
+  "latest_user_reported_hardware_results": [
+    {
+      "environment": "control-spsc-dma-aligned",
+      "status": "historical FAIL",
+      "pcm_bps_approx": 141200,
+      "sequence_error_period_ms_approx": 350,
+      "i2s_errors": 0,
+      "short_writes": 0
+    },
+    {
+      "environment": "control-official-i2s-reference",
+      "cpu_mhz": 160,
+      "modem_sleep_config": "ON",
+      "status": "historical FAIL",
+      "pcm_bps_approx": 152000,
+      "sequence_error_period_ms_approx": 290,
+      "underflows_reported": true,
+      "application_drops_reported": true,
+      "i2s_errors": 0,
+      "short_writes": 0
+    }
+  ],
+  "hardware_evidence": "User summaries, not new measurements or attached raw UART. Brief tail recovery to about 176400 B/s is not stable PASS. All four new matrix hardware runs NOT RUN.",
+  "cpu_runtime_read": "One public esp_clk_tree_src_get_freq_hz(SOC_MOD_CLK_CPU, EXACT) read at startup. Actual board result awaits UART; compile-time sleep config is not measured runtime state.",
+  "upload_performed": false,
+  "monitor_opened": false,
+  "commit_performed": false,
+  "push_performed": false,
+  "files_changed_this_round": [
+    "platformio.ini",
+    "CMakeLists.txt",
+    "src/CMakeLists.txt",
+    "sdkconfig.official-160-sleep.defaults",
+    "sdkconfig.official-160-nosleep.defaults",
+    "sdkconfig.official-240-sleep.defaults",
+    "sdkconfig.official-240-nosleep.defaults",
+    "src/control_official_i2s.c",
+    "tools/official_matrix.py",
+    "tools/matrix_config_guard.py",
+    "tools/test_matrix_guard.py",
+    "tools/verify_matrix.py",
+    "tools/verify_ab.py",
+    "tools/verify_aligned.py",
+    "tools/verify_official.py",
+    "tools/verify_official_runtime.py",
+    "tools/official_host_stubs.h",
+    "tools/test_official.c",
+    "README.md",
+    "docs/ab-investigation.md",
+    "docs/matrix-reference.json",
+    "docs/verification.json"
+  ],
+  "generated_configuration_files": [
+    "sdkconfig.control-official-i2s-reference",
+    "sdkconfig.control-official-160-nosleep",
+    "sdkconfig.control-official-240-sleep",
+    "sdkconfig.control-official-240-nosleep"
+  ],
+  "git_diff_check": {
+    "checks": "PASS",
+    "exit_code": 0
+  },
+  "changed_file_whitespace_check": "PASS",
+  "historical_official_round": {
+    "protected_files": 26,
+    "main_unchanged": true,
+    "protected_manifest_sha256": "5a176b3286998d42d8d45712b8f4459d5994797174b58fb472bb1733f24182c1",
+    "baseline_callback_sha256": "ee880c9019981988f1e21dd6e488f2149fbf15f70d42efe1a42351442493ba7f",
+    "baseline_config_matches_working_reference": true,
+    "clocked_and_legacy_regression_checks": {
+      "legacy_application_translation_units_unchanged": 12,
+      "pipeline_producer_identical": true,
+      "clocked_receive_timeout": 0,
+      "steady_state_software_delay": false,
+      "i2s_write_timeout_ms": 1000,
+      "checks": "PASS"
+    },
+    "spsc_and_six_variant_regression_checks": {
+      "checks": "PASS",
+      "strict_elf_checks": "FAIL",
+      "strict_elf_required": false,
+      "spsc_code_and_isolation_checks": "PASS",
+      "previous_translation_units_unchanged": 16,
+      "previous_allocated_elf_section_comparison": {
+        "baseline": {
+          "checks": "PASS",
+          "compared_sections": 7,
+          "changed_sections": {}
+        },
+        "main-config": {
+          "checks": "PASS",
+          "compared_sections": 7,
+          "changed_sections": {}
+        },
+        "streambuffer": {
+          "checks": "FAIL",
+          "compared_sections": 7,
+          "changed_sections": {
+            ".dram0.data": {
+              "expected": "30abe127087f2c80839866817a9e71137857dea3dc9ca5113881fe460ee4aa92",
+              "actual": "3f6a393ccf251fb74e0686a3919fbfccb9263854fa25ee4119b5008f97718b78"
+            },
+            ".flash.rodata": {
+              "expected": "8da6b9cf6cf63ea1f9ac799487492284c5f2bf4e8a3b1a730cb6333256af6ae7",
+              "actual": "f5c8f354914419e2b86156bd80ef8b86e439c61e42631b0f34bcf3b4f916fce2"
+            },
+            ".flash.tdata": {
+              "expected": "8f72620eac0d66705821308fc76cf15eded96c31b0c4dbe5b1ea1046402c24b5",
+              "actual": "7bbffb15b06eadac081d4d8428252fd94627ce4726181cb82b9f9a4f97fc79b1"
+            },
+            ".flash.text": {
+              "expected": "072fb9823d7da496b91c33150d82f2d3bddd15c1b6c78a5d3d50e7e225b9f789",
+              "actual": "09f145d610ad54377cf588bc051a8362db745c1c4ea6d22128665883a8146347"
+            },
+            ".iram0.text": {
+              "expected": "cfcdfc6c6f05785a7ac01a32afbc3f3b2d84d1ea6de50153ecbb206a8485c58e",
+              "actual": "a2c782f2976bc2c65e15aa606adc8bb86c8e94cf1ce012ed2a598268fefcfed4"
+            },
+            ".iram0.vectors": {
+              "expected": "6d55f3d1b7e067b7189b5e02d491b06a0b5ce14d32ed8e11a9693e78f5834f08",
+              "actual": "b8ebdffbc3d9e21852a5f578d8420772a5688d4beae7226bbe7797a28296f445"
+            }
+          }
+        },
+        "i2s-silence": {
+          "checks": "FAIL",
+          "compared_sections": 7,
+          "changed_sections": {
+            ".dram0.data": {
+              "expected": "5ae4239fb325bd52a62ef6435b01b856457ab188970715286af94cf40edadd99",
+              "actual": "14848b9d7ef52cfa02924f25d86ce70c43e8aa228f4d496cc03788441698adf4"
+            },
+            ".flash.rodata": {
+              "expected": "425fe004f04b3461705c0b255e0d2a5ba7254f53073e4928f57a634088bbd80e",
+              "actual": "9dea93b88648468275d7d5ebfd95ecd5bff8756afbd7ca67b18ca4e1f8a80432"
+            },
+            ".flash.tdata": {
+              "expected": "e571d6a2f8de661ab6479fb0db4294fbd501b6a7220e80f7a39d3aa1ef84bcd0",
+              "actual": "ef5b61becf3c57c0e47d034d23ee87ed5b60f21e85fad552e048c67e852b34be"
+            },
+            ".flash.text": {
+              "expected": "3ef69574bf9fcd2100cbdb49262aa94322a9698afe86a14a68880fb573bd0b5b",
+              "actual": "1f4aacf22c41350e98b701fabcd4913e1baa17222cc55a89a5c93965aa9a652f"
+            },
+            ".iram0.text": {
+              "expected": "8b9716e7481703e4b66464ab8efc97f49861628fca5545d3a96dc63ca57f0f39",
+              "actual": "098dada914ca1005a8c80a2aca3d5bc58f06cb1382814d0663a85f41c97fee39"
+            },
+            ".iram0.vectors": {
+              "expected": "b25ce66fa1f18a4886aa36bbf38aefedac119096bdd9177072ea9d51109232a5",
+              "actual": "b239227d843967596ed6cc9d515202c7ffe4c5fc590979ec56d704e10ba6c0bf"
+            }
+          }
+        },
+        "pipeline": {
+          "checks": "FAIL",
+          "compared_sections": 7,
+          "changed_sections": {
+            ".dram0.data": {
+              "expected": "448a721a680cc047ad1bc78f1ad968584ae498399e6806c941e5e65ecbdb34f4",
+              "actual": "e21beda08b3555a012dfbbcb21c79bac6bd562c68e280008a18713f0b7666167"
+            },
+            ".flash.rodata": {
+              "expected": "4b49ccabd969423b2ff0c2029b972bd86b91af4313d78953379263d0910f59b3",
+              "actual": "438aa65995c6703f0bfc9b8617e0196e4a2f72d10cdf775d7c7badeda1180126"
+            },
+            ".flash.tdata": {
+              "expected": "ef5b61becf3c57c0e47d034d23ee87ed5b60f21e85fad552e048c67e852b34be",
+              "actual": "8033f7730edb69f9a49e330ad47a39a6539c7b8778f6dc81aa9f1dd96ce0c2a4"
+            },
+            ".flash.text": {
+              "expected": "9cdb11c33ffa94361de3e4fc748bdd76f2dde11d22a0918e90b11146b2f33da2",
+              "actual": "9852e995fe8a8800ede83533744a188f3f4baeb353a0fafac312fe58083bbd55"
+            },
+            ".iram0.text": {
+              "expected": "8d83f00d27cac9cc96f152f3d07dfd590581b06737e53dfbb7f1b41f607e434b",
+              "actual": "b7c710fbe5ba7a668283315e1fdfc5ea522fe89e2ee7dc52c622c511b516dd69"
+            },
+            ".iram0.vectors": {
+              "expected": "6c90f1d4e0692d5bd8813b1692b04e918e9e3620e10d89cee748d3e78d8b55e1",
+              "actual": "e6475832deef14e7bc65984493d65b715189bed299e29839cb8caccb62021be4"
+            }
+          }
+        },
+        "clocked-pipeline": {
+          "checks": "FAIL",
+          "compared_sections": 7,
+          "changed_sections": {
+            ".dram0.data": {
+              "expected": "32d86a156997072bb6118f716c5cfc644919cd18ce4b8b0380706ce99bd15dab",
+              "actual": "fb067a71340bca16c9cf9ce7cdcfeff26379e32f83e44eef891bf200bfbc9d7d"
+            },
+            ".flash.rodata": {
+              "expected": "835138ee4511215b4ccbbcf8630c229055de0dd5636622e5c1b7c6e0656de943",
+              "actual": "d549ecfa33bcfd371e5f0e2066566e6d23eb44139578af09853a9b3818a9d967"
+            },
+            ".flash.text": {
+              "expected": "5bb10575e6a668eb6ce9f5df6c8e8e98f222647039baa2bc1febfe6d71168197",
+              "actual": "e5eef3fc76d039d90bb804d8029e645d2cd1d2c751413387d285204bbf7729d2"
+            },
+            ".iram0.text": {
+              "expected": "09818cd6c765f9c12d8a0b67207a5d03f12920430a0b19f0f61224452b4d9a42",
+              "actual": "d979ffdbe19b76401b8107f760b507e92548d2e53e5c1b88620c4572b6a77d46"
+            }
+          }
+        }
+      },
+      "elf_exclusion": ".flash.appdesc only (build date/time and ELF hash)",
+      "bluetooth_and_pcm_callback_identical": true,
+      "clocked_writer_identical_after_buffer_substitution": true,
+      "i2s_translation_unit_identical": true,
+      "no_streambuffer_calls_in_preprocessed_application_functions": true,
+      "no_streambuffer_symbols_in_elf": true,
+      "sdk_streambuffer_declarations_in_main_preprocessing": 25,
+      "ring_capacity": 32768,
+      "ring_internal_dram_address": "0x3ffbe72c",
+      "ring_undefined_symbols": [
+        "esp_timer_get_time",
+        "memcpy"
+      ],
+      "xtensa_memw_present": true,
+      "ring_atomic_helpers_or_retry_loops": false
+    },
+    "aligned_and_seven_variant_regression_checks": {
+      "checks": "PASS",
+      "strict_elf_required": false,
+      "source_preprocessed_checks": "PASS",
+      "semantic_checks": "PASS",
+      "previous_preprocessed_units_unchanged": 20,
+      "previous_seven_sdkconfigs_unchanged": true,
+      "sdkconfig_7_and_8_semantically_identical": true,
+      "audio_contracts": {
+        "spsc-pipeline": {
+          "CONTROL_CHUNK_BYTES": 4096,
+          "CONTROL_FRAME_BYTES": 4,
+          "CONTROL_STREAM_BYTES": 32768,
+          "CONTROL_PREFILL_BYTES": 8192,
+          "CONTROL_DMA_DESCRIPTORS": 3,
+          "CONTROL_DMA_FRAMES": 960,
+          "CONTROL_WRITER_PRIORITY": 22,
+          "CONTROL_WRITER_CORE": 1,
+          "CONTROL_WRITER_STACK": 8192,
+          "CONTROL_SAMPLE_RATE": 44100,
+          "CONTROL_WRITE_TIMEOUT_MS": 1000
+        },
+        "spsc-dma-aligned": {
+          "CONTROL_CHUNK_BYTES": 3840,
+          "CONTROL_FRAME_BYTES": 4,
+          "CONTROL_STREAM_BYTES": 32768,
+          "CONTROL_PREFILL_BYTES": 8192,
+          "CONTROL_DMA_DESCRIPTORS": 3,
+          "CONTROL_DMA_FRAMES": 960,
+          "CONTROL_WRITER_PRIORITY": 22,
+          "CONTROL_WRITER_CORE": 1,
+          "CONTROL_WRITER_STACK": 8192,
+          "CONTROL_SAMPLE_RATE": 44100,
+          "CONTROL_WRITE_TIMEOUT_MS": 1000
+        }
+      },
+      "sole_functional_difference": "CONTROL_CHUNK_BYTES: 4096 -> 3840",
+      "ring_and_i2s_loadable_object_sections_identical": true,
+      "transport_identical_except_chunk_and_one_boot_log": true,
+      "pcm_callback_producer_and_aggregate_logs_identical": true,
+      "no_streambuffer_in_aligned_elf": true,
+      "strict_elf_checks": "FAIL",
+      "previous_allocated_elf_section_comparison": {
+        "baseline": {
+          "checks": "PASS",
+          "changed_sections": {}
+        },
+        "main-config": {
+          "checks": "PASS",
+          "changed_sections": {}
+        },
+        "streambuffer": {
+          "checks": "FAIL",
+          "changed_sections": {
+            ".dram0.data": {
+              "expected": "30abe127087f2c80839866817a9e71137857dea3dc9ca5113881fe460ee4aa92",
+              "actual": "3f6a393ccf251fb74e0686a3919fbfccb9263854fa25ee4119b5008f97718b78"
+            },
+            ".flash.rodata": {
+              "expected": "8da6b9cf6cf63ea1f9ac799487492284c5f2bf4e8a3b1a730cb6333256af6ae7",
+              "actual": "f5c8f354914419e2b86156bd80ef8b86e439c61e42631b0f34bcf3b4f916fce2"
+            },
+            ".flash.tdata": {
+              "expected": "8f72620eac0d66705821308fc76cf15eded96c31b0c4dbe5b1ea1046402c24b5",
+              "actual": "7bbffb15b06eadac081d4d8428252fd94627ce4726181cb82b9f9a4f97fc79b1"
+            },
+            ".flash.text": {
+              "expected": "072fb9823d7da496b91c33150d82f2d3bddd15c1b6c78a5d3d50e7e225b9f789",
+              "actual": "09f145d610ad54377cf588bc051a8362db745c1c4ea6d22128665883a8146347"
+            },
+            ".iram0.text": {
+              "expected": "cfcdfc6c6f05785a7ac01a32afbc3f3b2d84d1ea6de50153ecbb206a8485c58e",
+              "actual": "a2c782f2976bc2c65e15aa606adc8bb86c8e94cf1ce012ed2a598268fefcfed4"
+            },
+            ".iram0.vectors": {
+              "expected": "6d55f3d1b7e067b7189b5e02d491b06a0b5ce14d32ed8e11a9693e78f5834f08",
+              "actual": "b8ebdffbc3d9e21852a5f578d8420772a5688d4beae7226bbe7797a28296f445"
+            }
+          }
+        },
+        "i2s-silence": {
+          "checks": "PASS",
+          "changed_sections": {}
+        },
+        "pipeline": {
+          "checks": "FAIL",
+          "changed_sections": {
+            ".dram0.data": {
+              "expected": "448a721a680cc047ad1bc78f1ad968584ae498399e6806c941e5e65ecbdb34f4",
+              "actual": "e21beda08b3555a012dfbbcb21c79bac6bd562c68e280008a18713f0b7666167"
+            },
+            ".flash.rodata": {
+              "expected": "4b49ccabd969423b2ff0c2029b972bd86b91af4313d78953379263d0910f59b3",
+              "actual": "438aa65995c6703f0bfc9b8617e0196e4a2f72d10cdf775d7c7badeda1180126"
+            },
+            ".flash.tdata": {
+              "expected": "ef5b61becf3c57c0e47d034d23ee87ed5b60f21e85fad552e048c67e852b34be",
+              "actual": "8033f7730edb69f9a49e330ad47a39a6539c7b8778f6dc81aa9f1dd96ce0c2a4"
+            },
+            ".flash.text": {
+              "expected": "9cdb11c33ffa94361de3e4fc748bdd76f2dde11d22a0918e90b11146b2f33da2",
+              "actual": "9852e995fe8a8800ede83533744a188f3f4baeb353a0fafac312fe58083bbd55"
+            },
+            ".iram0.text": {
+              "expected": "8d83f00d27cac9cc96f152f3d07dfd590581b06737e53dfbb7f1b41f607e434b",
+              "actual": "b7c710fbe5ba7a668283315e1fdfc5ea522fe89e2ee7dc52c622c511b516dd69"
+            },
+            ".iram0.vectors": {
+              "expected": "6c90f1d4e0692d5bd8813b1692b04e918e9e3620e10d89cee748d3e78d8b55e1",
+              "actual": "e6475832deef14e7bc65984493d65b715189bed299e29839cb8caccb62021be4"
+            }
+          }
+        },
+        "clocked-pipeline": {
+          "checks": "PASS",
+          "changed_sections": {}
+        },
+        "spsc-pipeline": {
+          "checks": "FAIL",
+          "changed_sections": {
+            ".dram0.data": {
+              "expected": "67f3043cbb881f5e8fd9dea3f732385f8f59c2a9b011266c27a695d1e500f6b0",
+              "actual": "a51971cd4e1553347b41525e55451fdeab0a841fa0134f05e6f5f7a2cb87b2a4"
+            },
+            ".flash.rodata": {
+              "expected": "0b760d1c289e58c8734d964eeb8c0089498fc1c54cecd2678b40287f1036ab6c",
+              "actual": "2c9020c26da8e50812fad1f1a6e4eeb65e9cca422468727029e426df6cf62e70"
+            },
+            ".flash.tdata": {
+              "expected": "8033f7730edb69f9a49e330ad47a39a6539c7b8778f6dc81aa9f1dd96ce0c2a4",
+              "actual": "ef5b61becf3c57c0e47d034d23ee87ed5b60f21e85fad552e048c67e852b34be"
+            },
+            ".flash.text": {
+              "expected": "991fd685b0dfa11a595918d924deef0a66148e6c36e67bbd495818b7a85996eb",
+              "actual": "06728f781b3002a6cf639163c92e012abef8146331990326ba26dc35440f7569"
+            },
+            ".iram0.text": {
+              "expected": "456f822925924e885415d86c2830258694b2bdbccdfa0ee427d4147b34bfa827",
+              "actual": "cb19f5a7c9174e8aa8a22f73de21a0447848650227ab143151af2541b649756a"
+            },
+            ".iram0.vectors": {
+              "expected": "b25ce66fa1f18a4886aa36bbf38aefedac119096bdd9177072ea9d51109232a5",
+              "actual": "b239227d843967596ed6cc9d515202c7ffe4c5fc590979ec56d704e10ba6c0bf"
+            }
+          }
+        }
+      },
+      "elf_exclusion": ".flash.appdesc only; mismatch remains FAIL, without implying a source change",
+      "hardware": "NOT TESTED"
+    },
+    "official_and_eight_variant_regression_checks": {
+      "checks": "PASS",
+      "previous_preprocessed_units_unchanged": 24,
+      "previous_eight_sdkconfigs_unchanged": true,
+      "old_transport_sources_unchanged": true,
+      "normative_idf_sources_unchanged": true,
+      "full_sdkconfig_matches_aligned": true,
+      "bluetooth_init_and_pairing_preserved": true,
+      "compiled_parameters": {
+        "OFFICIAL_RING_BYTES": 32768,
+        "OFFICIAL_PREFETCH_BYTES": 20480,
+        "OFFICIAL_WRITE_UPTO": 1440,
+        "OFFICIAL_READ_TIMEOUT_MS": 20,
+        "OFFICIAL_WRITER_STACK": 4096,
+        "OFFICIAL_WRITER_PRIORITY": 22,
+        "OFFICIAL_STATS_PERIOD_MS": 5000,
+        "OFFICIAL_BCK": 26,
+        "OFFICIAL_WS": 25,
+        "OFFICIAL_DATA": 22,
+        "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ": 160,
+        "CONFIG_BTDM_CTRL_MODEM_SLEEP": 1,
+        "dma_desc_num": 6,
+        "dma_frame_num": 240,
+        "intr_priority": 0
+      },
+      "callback_bounded_no_timer_lock_alloc_write_log": true,
+      "atomics_inline_load_store_no_helpers_or_rmw": true,
+      "custom_transport_symbols_absent": true,
+      "cooperative_close_order": true,
+      "hardware": "NOT TESTED",
+      "elf_identity_required": false
+    },
+    "selector_positive_and_negative_checks": "PASS",
+    "environments": [
+      {
+        "environment": "control-baseline",
+        "checks": "PASS",
+        "banner": "CONTROL variant=baseline",
+        "firmware_sha256": "6d42a131cf4cc37ceae069a4dc3eb68375bfb647a0409443daccfee8876af642",
+        "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113",
+        "build": "SUCCESS",
+        "ram_bytes": 54244,
+        "flash_bytes": 721949,
+        "hardware_status": "PASS",
+        "hardware_source": "Previous user-reported results; not run by agent"
+      },
+      {
+        "environment": "control-main-config",
+        "checks": "PASS",
+        "banner": "CONTROL variant=main-config",
+        "firmware_sha256": "82f459178f090fa62c1de5ea2b68f06646dc078a7d5bae9bb364358126b56b39",
+        "sdkconfig_semantic_sha256": "57af2a26582a4efe5cd210450a23fbf1b44b50e610852edb11f61685c6d51e56",
+        "build": "SUCCESS",
+        "ram_bytes": 54244,
+        "flash_bytes": 721157,
+        "hardware_status": "PASS",
+        "hardware_source": "Previous user-reported results; not run by agent"
+      },
+      {
+        "environment": "control-streambuffer",
+        "checks": "PASS",
+        "banner": "CONTROL variant=streambuffer",
+        "firmware_sha256": "0a74654653068220968086aefd7390b1d290ea5c81a50bb3a299277a4bb75089",
+        "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113",
+        "build": "SUCCESS",
+        "ram_bytes": 54596,
+        "flash_bytes": 728077,
+        "hardware_status": "PASS",
+        "hardware_source": "Previous user-reported results; not run by agent"
+      },
+      {
+        "environment": "control-i2s-silence",
+        "checks": "PASS",
+        "banner": "CONTROL variant=i2s-silence",
+        "firmware_sha256": "e09b9ec9951582cb9ec38c32731c01c9df5b04c7b1ae3450434076ecaca42bf6",
+        "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113",
+        "build": "SUCCESS",
+        "ram_bytes": 54848,
+        "flash_bytes": 751069,
+        "hardware_status": "PASS",
+        "hardware_source": "Previous user-reported results; not run by agent"
+      },
+      {
+        "environment": "control-pipeline",
+        "checks": "PASS",
+        "banner": "CONTROL variant=pipeline",
+        "firmware_sha256": "d578015ca8654d5b0be07c6ab54dbeaa316407dcfc434680280e006adfcd8ffa",
+        "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113",
+        "build": "SUCCESS",
+        "ram_bytes": 54912,
+        "flash_bytes": 757509,
+        "hardware_status": "FAIL",
+        "hardware_source": "Previous user-reported results; not run by agent"
+      },
+      {
+        "environment": "control-clocked-pipeline",
+        "checks": "PASS",
+        "banner": "CONTROL variant=clocked-pipeline",
+        "firmware_sha256": "83ee3d97bb8c9f4df3bbe1b903ad3c2534c360d7877e13300be4ec9f84d61ccd",
+        "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113",
+        "build": "SUCCESS",
+        "ram_bytes": 55088,
+        "flash_bytes": 759233,
+        "hardware_status": "FAIL",
+        "hardware_source": "Previous user-reported results; not run by agent"
+      },
+      {
+        "environment": "control-spsc-pipeline",
+        "checks": "PASS",
+        "banner": "CONTROL variant=spsc-pipeline",
+        "firmware_sha256": "eaa5f7b783c7e8695d876149a753b768390fc7fe1f24b01098d1879ac24495da",
+        "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113",
+        "build": "SUCCESS",
+        "ram_bytes": 87904,
+        "flash_bytes": 789521,
+        "hardware_status": "FAIL",
+        "hardware_source": "Previous user-reported results; not run by agent"
+      },
+      {
+        "environment": "control-spsc-dma-aligned",
+        "checks": "PASS",
+        "banner": "CONTROL variant=spsc-dma-aligned",
+        "firmware_sha256": "2d0a7cfd9174028c4a70e492354e4f3728142223c021546c1b27ba9a3cf42358",
+        "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113",
+        "build": "SUCCESS",
+        "ram_bytes": 87904,
+        "flash_bytes": 790325,
+        "hardware_status": "NOT TESTED"
+      },
+      {
+        "environment": "control-official-i2s-reference",
+        "checks": "PASS",
+        "banner": "CONTROL variant=official-i2s-reference",
+        "firmware_sha256": "dec5f507cadc1307ae2d4694f573a7b28b8ef21b0c8c59aa585734681da7d862",
+        "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113",
+        "build": "SUCCESS",
+        "ram_bytes": 54528,
+        "flash_bytes": 759229,
+        "hardware_status": "NOT TESTED"
+      }
+    ],
+    "hardware_tests": "User reports baseline/main-config/streambuffer/i2s-silence PASS; pipeline, clocked-pipeline and spsc-pipeline FAIL. spsc-dma-aligned and official-i2s-reference NOT TESTED. No Upload or Monitor by the agent.",
+    "script_results": {
+      "verify_clocked": {
+        "exit_code": 0,
+        "checks": "PASS"
+      },
+      "verify_spsc": {
+        "exit_code": 0,
+        "checks": "PASS"
+      },
+      "verify_aligned": {
+        "exit_code": 0,
+        "checks": "PASS"
+      },
+      "verify_official": {
+        "exit_code": 0,
+        "checks": "PASS"
+      },
+      "verify_ab": {
+        "exit_code": 0,
+        "checks": "PASS"
+      },
+      "verify_official_runtime": {
+        "exit_code": 0,
+        "checks": "PASS"
+      },
+      "verify_spsc_runtime": {
+        "exit_code": 0,
+        "checks": "PASS"
+      }
+    },
+    "official_host_runtime_tests": {
+      "checks": "PASS",
+      "result": "PASS prefetch/re-prefetch, wrap/order, no zero padding\nPASS overflow is whole-packet; threshold exit packet also dropped\nPASS I2S error/short counters, no tail retry\nPASS 44.1/48 kHz, mono/stereo, live codec restart\nPASS close waits for in-flight writer, callback and stats reader\nPASS partial initialization failures, 32 reconnects, output after close",
+      "target": "Production control_official_i2s.c, Windows threads, API adapters",
+      "limits": "Does not validate real FreeRTOS RingBuffer/scheduling, Bluetooth, DMA or board behavior."
+    },
+    "spsc_host_runtime_tests": {
+      "checks": "PASS",
+      "variants": [
+        {
+          "checks": "PASS",
+          "variant": 7,
+          "output_bytes": 4096,
+          "compiler": "0.14.1",
+          "target": "Windows host; production C ring, IDF timer/placement stubs",
+          "result": "PASS: boundary/alignment/full/partial, uint32 rollover, 100000 FIFO oracle steps,\nin-flight publication/discard, 8000000 ordered stereo frames across two threads.\nOutput block=4096: wrap, partial reads, alignment, rollover, overflow and finite-prefix flush PASS.",
+          "limits": "Does not execute Bluetooth, I2S, ESP32 memory ordering or scheduler."
+        },
+        {
+          "checks": "PASS",
+          "variant": 8,
+          "output_bytes": 3840,
+          "compiler": "0.14.1",
+          "target": "Windows host; production C ring, IDF timer/placement stubs",
+          "result": "PASS: boundary/alignment/full/partial, uint32 rollover, 100000 FIFO oracle steps,\nin-flight publication/discard, 8000000 ordered stereo frames across two threads.\nOutput block=3840: wrap, partial reads, alignment, rollover, overflow and finite-prefix flush PASS.",
+          "limits": "Does not execute Bluetooth, I2S, ESP32 memory ordering or scheduler."
+        }
+      ]
+    },
+    "validation_date": "2026-09-16",
+    "overall_checks": "PASS",
+    "source_preprocessed_checks": "PASS",
+    "semantic_checks": "PASS",
+    "elf_identity_required": false,
+    "official_hardware_status": "NOT TESTED",
+    "aligned_hardware_status": "NOT TESTED",
+    "upload_performed": false,
+    "monitor_opened": false,
+    "strict_elf_checks": "FAIL",
+    "elf_policy": "Per current user request, acceptance uses unchanged source/preprocessing, configuration, symbols and semantics. Historical ELF section mismatches remain reported; --strict-elf opts into the prior nonzero exit policy. References are unchanged.",
+    "official_configuration": {
+      "variant_selector": 9,
+      "source": "Installed ESP-IDF 6.1.0 a2dp_sink_stream helpers",
+      "board": "esp32doit-devkit-v1",
+      "flash_mb": 4,
+      "cpu_mhz": 160,
+      "modem_sleep": true,
+      "cpu_sleep_choice": "Confirmed by user: match pipeline/SPSC, not control-main-config",
+      "ring_type": "RINGBUF_TYPE_BYTEBUF",
+      "ring_bytes": 32768,
+      "prefetch_bytes": 20480,
+      "re_prefetch_after_underflow": true,
+      "dma_descriptors": 6,
+      "dma_frames": 240,
+      "interrupt_priority": 0,
+      "auto_clear": true,
+      "format": "MSB s16; stereo default, SBC channel configuration applied",
+      "bck": 26,
+      "ws": 25,
+      "data": 22,
+      "mclk": "unused",
+      "read_upto_bytes": 1440,
+      "receive_timeout_ms": 20,
+      "write_timeout_argument": "portMAX_DELAY",
+      "short_write_retry": false,
+      "software_zero_padding": false,
+      "latency_trim": false,
+      "writer_api": "xTaskCreate",
+      "writer_core": "unpinned",
+      "writer_priority_expression": "configMAX_PRIORITIES - 3",
+      "writer_priority": 22,
+      "writer_stack_bytes": 4096,
+      "stats_priority": 1,
+      "stats_period_ms": 5000,
+      "sbc_rates_hz": [
+        16000,
+        32000,
+        44100,
+        48000
+      ]
+    },
+    "intentional_deviations": [
+      "Existing control Bluetooth initialization, pairing, device name and direct event callback retained; no official app-work dispatcher or added AVRCP operations",
+      "GPIO 26/25/22 and variant-only CMake integration",
+      "Upstream hot-path logs replaced by single-writer 32-bit relaxed counters and one priority-1 stats task; BT warnings unchanged",
+      "Check I2S error/short results, no tail retry",
+      "32-bit atomic lifetime flags and cooperative writer join with completion semaphore; only lifecycle waits; full partial-init cleanup",
+      "Idempotent open fallback and stop/reconfigure/start for live SBC reconfiguration with fresh ring/prefetch",
+      "Internal SBC only; AAC branch omitted"
+    ],
+    "diagnostic_limits": [
+      "Architecture comparison changes multiple parameters; hardware cause remains unproven",
+      "auto_clear may produce hardware silence; API byte counters exclude those automatic DMA bytes",
+      "Host adapters do not execute FreeRTOS scheduler, ESP32 RingBuffer implementation, I2S DMA or Bluetooth",
+      "One app-lifetime stats task persists across connections; service writer, ring, both semaphores and channel are released on close",
+      "FreeRTOS RingBuffer/semaphore APIs retain internal locks; callback has no application critical section or spinlock"
+    ],
+    "build_logs": [
+      ".pio/official-build.log",
+      ".pio/official-legacy-build.log",
+      ".pio/official-final-build.log",
+      ".pio/official-all-final-build.log"
+    ],
+    "files_changed_this_round": [
+      "platformio.ini",
+      "CMakeLists.txt",
+      "src/CMakeLists.txt",
+      "src/control_variant.h",
+      "src/control_official_main.c",
+      "src/control_official_i2s.c",
+      "src/control_official_i2s.h",
+      "tools/verify_ab.py",
+      "tools/verify_spsc.py",
+      "tools/verify_aligned.py",
+      "tools/verify_official.py",
+      "tools/verify_official_runtime.py",
+      "tools/test_official.c",
+      "tools/official_host_stubs.h",
+      "README.md",
+      "docs/ab-investigation.md",
+      "docs/verification.json",
+      "docs/official-reference.json"
+    ],
+    "latest_user_reported_hardware_result": {
+      "environment": "control-spsc-pipeline",
+      "status": "FAIL",
+      "source": "User-provided summary; raw UART not attached and hardware not run by agent",
+      "pcm_bps_approx": 151296,
+      "sequence_errors": 172,
+      "pcm_gap_ms_range": [
+        270,
+        291
+      ],
+      "producer_us_typical_range": [
+        20,
+        53
+      ],
+      "consumer_us_typical_range": [
+        12,
+        16
+      ],
+      "consumer_us_max": 37,
+      "i2s_bps_approx": 176400,
+      "i2s_errors": 0,
+      "short_writes": 0,
+      "drops_kib_per_5s_range": [
+        86,
+        131
+      ],
+      "inserted_silence_kib_per_5s_range": [
+        229,
+        246
+      ],
+      "sequence_error_spacing_s_typical": [
+        0.34,
+        0.35
+      ],
+      "recv_increment_often_hex": "0x0F"
+    },
+    "historical_aligned_round": {
+      "protected_files": 26,
+      "main_unchanged": true,
+      "protected_manifest_sha256": "5a176b3286998d42d8d45712b8f4459d5994797174b58fb472bb1733f24182c1",
+      "baseline_callback_sha256": "ee880c9019981988f1e21dd6e488f2149fbf15f70d42efe1a42351442493ba7f",
+      "baseline_config_matches_working_reference": true,
+      "clocked_and_legacy_regression_checks": {
+        "legacy_application_translation_units_unchanged": 12,
+        "pipeline_producer_identical": true,
+        "clocked_receive_timeout": 0,
+        "steady_state_software_delay": false,
+        "i2s_write_timeout_ms": 1000,
+        "checks": "PASS"
+      },
+      "spsc_and_six_variant_regression_checks": {
+        "checks": "FAIL",
+        "spsc_code_and_isolation_checks": "PASS",
+        "previous_translation_units_unchanged": 16,
+        "previous_allocated_elf_section_comparison": {
+          "baseline": {
+            "checks": "PASS",
+            "compared_sections": 7,
+            "changed_sections": {}
+          },
+          "main-config": {
+            "checks": "PASS",
+            "compared_sections": 7,
+            "changed_sections": {}
+          },
+          "streambuffer": {
+            "checks": "PASS",
+            "compared_sections": 7,
+            "changed_sections": {}
+          },
+          "i2s-silence": {
+            "checks": "FAIL",
+            "compared_sections": 7,
+            "changed_sections": {
+              ".dram0.data": {
+                "expected": "5ae4239fb325bd52a62ef6435b01b856457ab188970715286af94cf40edadd99",
+                "actual": "14848b9d7ef52cfa02924f25d86ce70c43e8aa228f4d496cc03788441698adf4"
+              },
+              ".flash.rodata": {
+                "expected": "425fe004f04b3461705c0b255e0d2a5ba7254f53073e4928f57a634088bbd80e",
+                "actual": "9dea93b88648468275d7d5ebfd95ecd5bff8756afbd7ca67b18ca4e1f8a80432"
+              },
+              ".flash.tdata": {
+                "expected": "e571d6a2f8de661ab6479fb0db4294fbd501b6a7220e80f7a39d3aa1ef84bcd0",
+                "actual": "ef5b61becf3c57c0e47d034d23ee87ed5b60f21e85fad552e048c67e852b34be"
+              },
+              ".flash.text": {
+                "expected": "3ef69574bf9fcd2100cbdb49262aa94322a9698afe86a14a68880fb573bd0b5b",
+                "actual": "1f4aacf22c41350e98b701fabcd4913e1baa17222cc55a89a5c93965aa9a652f"
+              },
+              ".iram0.text": {
+                "expected": "8b9716e7481703e4b66464ab8efc97f49861628fca5545d3a96dc63ca57f0f39",
+                "actual": "098dada914ca1005a8c80a2aca3d5bc58f06cb1382814d0663a85f41c97fee39"
+              },
+              ".iram0.vectors": {
+                "expected": "b25ce66fa1f18a4886aa36bbf38aefedac119096bdd9177072ea9d51109232a5",
+                "actual": "b239227d843967596ed6cc9d515202c7ffe4c5fc590979ec56d704e10ba6c0bf"
+              }
+            }
+          },
+          "pipeline": {
+            "checks": "FAIL",
+            "compared_sections": 7,
+            "changed_sections": {
+              ".dram0.data": {
+                "expected": "448a721a680cc047ad1bc78f1ad968584ae498399e6806c941e5e65ecbdb34f4",
+                "actual": "7c1b7063b00fbe2ba77df90b015e3776691045d0669ade251c1715f5c3df7b3b"
+              },
+              ".flash.rodata": {
+                "expected": "4b49ccabd969423b2ff0c2029b972bd86b91af4313d78953379263d0910f59b3",
+                "actual": "d0fc9856588c15e49c3c31a95e5eef0e992774c9055394891ab3954d4e9d9921"
+              },
+              ".flash.text": {
+                "expected": "9cdb11c33ffa94361de3e4fc748bdd76f2dde11d22a0918e90b11146b2f33da2",
+                "actual": "cd82e340d71998db16aee53c8ffb2848b1e54564db0d456db660de52b8c328bb"
+              },
+              ".iram0.text": {
+                "expected": "8d83f00d27cac9cc96f152f3d07dfd590581b06737e53dfbb7f1b41f607e434b",
+                "actual": "033b3f6f5c079ab2503b8a976ba4a23301532b175c8bf6b2bae448bced7c81ef"
+              }
+            }
+          },
+          "clocked-pipeline": {
+            "checks": "PASS",
+            "compared_sections": 7,
+            "changed_sections": {}
+          }
+        },
+        "elf_exclusion": ".flash.appdesc only (build date/time and ELF hash)",
+        "bluetooth_and_pcm_callback_identical": true,
+        "clocked_writer_identical_after_buffer_substitution": true,
+        "i2s_translation_unit_identical": true,
+        "no_streambuffer_calls_in_preprocessed_application_functions": true,
+        "no_streambuffer_symbols_in_elf": true,
+        "sdk_streambuffer_declarations_in_main_preprocessing": 25,
+        "ring_capacity": 32768,
+        "ring_internal_dram_address": "0x3ffbe72c",
+        "ring_undefined_symbols": [
+          "esp_timer_get_time",
+          "memcpy"
+        ],
+        "xtensa_memw_present": true,
+        "ring_atomic_helpers_or_retry_loops": false
+      },
+      "aligned_and_seven_variant_regression_checks": {
+        "checks": "FAIL",
+        "source_preprocessed_checks": "PASS",
+        "semantic_checks": "PASS",
+        "previous_preprocessed_units_unchanged": 20,
+        "previous_seven_sdkconfigs_unchanged": true,
+        "sdkconfig_7_and_8_semantically_identical": true,
+        "audio_contracts": {
+          "spsc-pipeline": {
+            "CONTROL_CHUNK_BYTES": 4096,
+            "CONTROL_FRAME_BYTES": 4,
+            "CONTROL_STREAM_BYTES": 32768,
+            "CONTROL_PREFILL_BYTES": 8192,
+            "CONTROL_DMA_DESCRIPTORS": 3,
+            "CONTROL_DMA_FRAMES": 960,
+            "CONTROL_WRITER_PRIORITY": 22,
+            "CONTROL_WRITER_CORE": 1,
+            "CONTROL_WRITER_STACK": 8192,
+            "CONTROL_SAMPLE_RATE": 44100,
+            "CONTROL_WRITE_TIMEOUT_MS": 1000
+          },
+          "spsc-dma-aligned": {
+            "CONTROL_CHUNK_BYTES": 3840,
+            "CONTROL_FRAME_BYTES": 4,
+            "CONTROL_STREAM_BYTES": 32768,
+            "CONTROL_PREFILL_BYTES": 8192,
+            "CONTROL_DMA_DESCRIPTORS": 3,
+            "CONTROL_DMA_FRAMES": 960,
+            "CONTROL_WRITER_PRIORITY": 22,
+            "CONTROL_WRITER_CORE": 1,
+            "CONTROL_WRITER_STACK": 8192,
+            "CONTROL_SAMPLE_RATE": 44100,
+            "CONTROL_WRITE_TIMEOUT_MS": 1000
+          }
+        },
+        "sole_functional_difference": "CONTROL_CHUNK_BYTES: 4096 -> 3840",
+        "ring_and_i2s_loadable_object_sections_identical": true,
+        "transport_identical_except_chunk_and_one_boot_log": true,
+        "pcm_callback_producer_and_aggregate_logs_identical": true,
+        "no_streambuffer_in_aligned_elf": true,
+        "strict_elf_checks": "FAIL",
+        "previous_allocated_elf_section_comparison": {
+          "baseline": {
+            "checks": "PASS",
+            "changed_sections": {}
+          },
+          "main-config": {
+            "checks": "PASS",
+            "changed_sections": {}
+          },
+          "streambuffer": {
+            "checks": "PASS",
+            "changed_sections": {}
+          },
+          "i2s-silence": {
+            "checks": "PASS",
+            "changed_sections": {}
+          },
+          "pipeline": {
+            "checks": "FAIL",
+            "changed_sections": {
+              ".dram0.data": {
+                "expected": "448a721a680cc047ad1bc78f1ad968584ae498399e6806c941e5e65ecbdb34f4",
+                "actual": "7c1b7063b00fbe2ba77df90b015e3776691045d0669ade251c1715f5c3df7b3b"
+              },
+              ".flash.rodata": {
+                "expected": "4b49ccabd969423b2ff0c2029b972bd86b91af4313d78953379263d0910f59b3",
+                "actual": "d0fc9856588c15e49c3c31a95e5eef0e992774c9055394891ab3954d4e9d9921"
+              },
+              ".flash.text": {
+                "expected": "9cdb11c33ffa94361de3e4fc748bdd76f2dde11d22a0918e90b11146b2f33da2",
+                "actual": "cd82e340d71998db16aee53c8ffb2848b1e54564db0d456db660de52b8c328bb"
+              },
+              ".iram0.text": {
+                "expected": "8d83f00d27cac9cc96f152f3d07dfd590581b06737e53dfbb7f1b41f607e434b",
+                "actual": "033b3f6f5c079ab2503b8a976ba4a23301532b175c8bf6b2bae448bced7c81ef"
+              }
+            }
+          },
+          "clocked-pipeline": {
+            "checks": "FAIL",
+            "changed_sections": {
+              ".dram0.data": {
+                "expected": "fb067a71340bca16c9cf9ce7cdcfeff26379e32f83e44eef891bf200bfbc9d7d",
+                "actual": "32d86a156997072bb6118f716c5cfc644919cd18ce4b8b0380706ce99bd15dab"
+              },
+              ".flash.rodata": {
+                "expected": "d549ecfa33bcfd371e5f0e2066566e6d23eb44139578af09853a9b3818a9d967",
+                "actual": "835138ee4511215b4ccbbcf8630c229055de0dd5636622e5c1b7c6e0656de943"
+              },
+              ".flash.text": {
+                "expected": "e5eef3fc76d039d90bb804d8029e645d2cd1d2c751413387d285204bbf7729d2",
+                "actual": "5bb10575e6a668eb6ce9f5df6c8e8e98f222647039baa2bc1febfe6d71168197"
+              },
+              ".iram0.text": {
+                "expected": "d979ffdbe19b76401b8107f760b507e92548d2e53e5c1b88620c4572b6a77d46",
+                "actual": "09818cd6c765f9c12d8a0b67207a5d03f12920430a0b19f0f61224452b4d9a42"
+              }
+            }
+          },
+          "spsc-pipeline": {
+            "checks": "FAIL",
+            "changed_sections": {
+              ".dram0.data": {
+                "expected": "67f3043cbb881f5e8fd9dea3f732385f8f59c2a9b011266c27a695d1e500f6b0",
+                "actual": "27f5823b5dfd23a1186a63ca9b255b459b2b42b013935950f600805e8e2ad60c"
+              },
+              ".flash.rodata": {
+                "expected": "0b760d1c289e58c8734d964eeb8c0089498fc1c54cecd2678b40287f1036ab6c",
+                "actual": "a73a17fa0d68ae96bd433150a01261e28f12aa647de5e2f1e6f05795889766d0"
+              },
+              ".flash.tdata": {
+                "expected": "8033f7730edb69f9a49e330ad47a39a6539c7b8778f6dc81aa9f1dd96ce0c2a4",
+                "actual": "ef5b61becf3c57c0e47d034d23ee87ed5b60f21e85fad552e048c67e852b34be"
+              },
+              ".flash.text": {
+                "expected": "991fd685b0dfa11a595918d924deef0a66148e6c36e67bbd495818b7a85996eb",
+                "actual": "95f18c375826682e514a6b4fb013ed99eba0c6e715624b115b878f599df53d75"
+              },
+              ".iram0.text": {
+                "expected": "456f822925924e885415d86c2830258694b2bdbccdfa0ee427d4147b34bfa827",
+                "actual": "bd369a1816228eed8c507e733dda2bd10360371608001c5f879d398ed5095c66"
+              },
+              ".iram0.vectors": {
+                "expected": "b25ce66fa1f18a4886aa36bbf38aefedac119096bdd9177072ea9d51109232a5",
+                "actual": "b239227d843967596ed6cc9d515202c7ffe4c5fc590979ec56d704e10ba6c0bf"
+              }
+            }
+          }
+        },
+        "elf_exclusion": ".flash.appdesc only; mismatch remains FAIL, without implying a source change",
+        "hardware": "NOT TESTED"
+      },
+      "selector_positive_and_negative_checks": "PASS",
+      "environments": [
+        {
+          "environment": "control-baseline",
+          "checks": "PASS",
+          "banner": "CONTROL variant=baseline",
+          "firmware_sha256": "d8a1c9c63cf9fdf35f6c617d238ba4ea0116ef035b8d9a714afbf03755702951",
+          "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113",
+          "build": "SUCCESS",
+          "static_ram_bytes": 54244,
+          "flash_app_bytes": 721949,
+          "hardware_status": "PASS (user-reported)"
+        },
+        {
+          "environment": "control-main-config",
+          "checks": "PASS",
+          "banner": "CONTROL variant=main-config",
+          "firmware_sha256": "a0959e54f66bd956b0001ee90384b056d7e374067a39d03f89754c312e74eb9e",
+          "sdkconfig_semantic_sha256": "57af2a26582a4efe5cd210450a23fbf1b44b50e610852edb11f61685c6d51e56",
+          "build": "SUCCESS",
+          "static_ram_bytes": 54244,
+          "flash_app_bytes": 721157,
+          "hardware_status": "PASS (user-reported)"
+        },
+        {
+          "environment": "control-streambuffer",
+          "checks": "PASS",
+          "banner": "CONTROL variant=streambuffer",
+          "firmware_sha256": "5dca5043362a5a6a6789daef1082f3cde7417687e0567154fe51dabc33ad407e",
+          "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113",
+          "build": "SUCCESS",
+          "static_ram_bytes": 54596,
+          "flash_app_bytes": 728077,
+          "hardware_status": "PASS (user-reported)"
+        },
+        {
+          "environment": "control-i2s-silence",
+          "checks": "PASS",
+          "banner": "CONTROL variant=i2s-silence",
+          "firmware_sha256": "4c6451c319ebc5646d196e653c1d8b78ceb0f73438ee99fb4a20f3946ee08884",
+          "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113",
+          "build": "SUCCESS",
+          "static_ram_bytes": 54848,
+          "flash_app_bytes": 751069,
+          "hardware_status": "PASS (user-reported)"
+        },
+        {
+          "environment": "control-pipeline",
+          "checks": "PASS",
+          "banner": "CONTROL variant=pipeline",
+          "firmware_sha256": "46dc52f0b1135aba7e827bb0e8076885a9f4a848938ad0f6b6b7ba7fa39ebed4",
+          "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113",
+          "build": "SUCCESS",
+          "static_ram_bytes": 54912,
+          "flash_app_bytes": 757509,
+          "hardware_status": "FAIL"
+        },
+        {
+          "environment": "control-clocked-pipeline",
+          "checks": "PASS",
+          "banner": "CONTROL variant=clocked-pipeline",
+          "firmware_sha256": "c1bb52cb8256cdab37f7b49c46e7a2354bbb481309eedf9b28cf54d0367d4540",
+          "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113",
+          "build": "SUCCESS",
+          "static_ram_bytes": 55088,
+          "flash_app_bytes": 759849,
+          "hardware_status": "FAIL"
+        },
+        {
+          "environment": "control-spsc-pipeline",
+          "checks": "PASS",
+          "banner": "CONTROL variant=spsc-pipeline",
+          "firmware_sha256": "91c939ad32f14f610ac154740b94100fb87b96b818e68edce88827d6707da021",
+          "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113",
+          "build": "SUCCESS",
+          "static_ram_bytes": 87904,
+          "flash_app_bytes": 790133,
+          "hardware_status": "FAIL"
+        },
+        {
+          "environment": "control-spsc-dma-aligned",
+          "checks": "PASS",
+          "banner": "CONTROL variant=spsc-dma-aligned",
+          "firmware_sha256": "925117a15e9c98d9153bd186fba8cea6566ea383951b1a02625f7084a72beefa",
+          "sdkconfig_semantic_sha256": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113",
+          "build": "SUCCESS",
+          "static_ram_bytes": 87904,
+          "flash_app_bytes": 790325,
+          "hardware_status": "NOT TESTED"
+        }
+      ],
+      "hardware_tests": "User reports baseline/main-config/streambuffer/i2s-silence PASS; pipeline, clocked-pipeline and spsc-pipeline FAIL. spsc-dma-aligned NOT TESTED. No Upload or Monitor by the agent.",
+      "validation_date": "2026-09-16",
+      "overall_checks": "FAIL",
+      "source_preprocessed_checks": "PASS",
+      "semantic_checks": "PASS",
+      "strict_elf_checks": "FAIL",
+      "overall_reason": "All eight builds, 20 previous preprocessed units, config/semantic/isolation checks and both host tests passed. Strict legacy ELF hashes differ; retained as FAIL separately. Aligned hardware NOT TESTED.",
+      "spsc_host_runtime_tests": {
+        "checks": "PASS",
+        "variants": [
+          {
+            "checks": "PASS",
+            "variant": 7,
+            "output_bytes": 4096,
+            "compiler": "0.14.1",
+            "target": "Windows host; production C ring, IDF timer/placement stubs",
+            "result": "PASS: boundary/alignment/full/partial, uint32 rollover, 100000 FIFO oracle steps,\nin-flight publication/discard, 8000000 ordered stereo frames across two threads.\nOutput block=4096: wrap, partial reads, alignment, rollover, overflow and finite-prefix flush PASS.",
+            "limits": "Does not execute Bluetooth, I2S, ESP32 memory ordering or scheduler."
+          },
+          {
+            "checks": "PASS",
+            "variant": 8,
+            "output_bytes": 3840,
+            "compiler": "0.14.1",
+            "target": "Windows host; production C ring, IDF timer/placement stubs",
+            "result": "PASS: boundary/alignment/full/partial, uint32 rollover, 100000 FIFO oracle steps,\nin-flight publication/discard, 8000000 ordered stereo frames across two threads.\nOutput block=3840: wrap, partial reads, alignment, rollover, overflow and finite-prefix flush PASS.",
+            "limits": "Does not execute Bluetooth, I2S, ESP32 memory ordering or scheduler."
+          }
+        ]
+      },
+      "script_results": {
+        "verify_ab.py": {
+          "exit_code": 1,
+          "semantic_checks": "PASS",
+          "strict_elf_checks": "FAIL"
+        },
+        "verify_clocked.py (check_clocked)": {
+          "exit_code": 0,
+          "checks": "PASS"
+        },
+        "verify_spsc.py": {
+          "exit_code": 1,
+          "semantic_checks": "PASS",
+          "strict_elf_checks": "FAIL"
+        },
+        "verify_aligned.py": {
+          "exit_code": 1,
+          "source_preprocessed_checks": "PASS",
+          "semantic_checks": "PASS",
+          "strict_elf_checks": "FAIL"
+        },
+        "verify_spsc_runtime.py": {
+          "exit_code": 0,
+          "checks": "PASS",
+          "variants": [
+            7,
+            8
+          ]
+        }
+      },
+      "configuration_diff": {
+        "functional": {
+          "CONTROL_CHUNK_BYTES": {
+            "spsc-pipeline": 4096,
+            "spsc-dma-aligned": 3840
+          }
+        },
+        "identification": {
+          "CONTROL_VARIANT": {
+            "spsc-pipeline": 7,
+            "spsc-dma-aligned": 8
+          },
+          "banner": "CONTROL variant=spsc-dma-aligned"
+        },
+        "new_boot_log": "output_bytes=3840, dma_descriptor_bytes=3840, dma_frames=960, frame_bytes=4, writer_dma_aligned=yes",
+        "unchanged": {
+          "CONTROL_FRAME_BYTES": 4,
+          "CONTROL_STREAM_BYTES": 32768,
+          "CONTROL_PREFILL_BYTES": 8192,
+          "CONTROL_DMA_DESCRIPTORS": 3,
+          "CONTROL_DMA_FRAMES": 960,
+          "CONTROL_WRITER_PRIORITY": 22,
+          "CONTROL_WRITER_CORE": 1,
+          "CONTROL_WRITER_STACK": 8192,
+          "CONTROL_SAMPLE_RATE": 44100,
+          "CONTROL_WRITE_TIMEOUT_MS": 1000
+        },
+        "error_recovery": "Unchanged: normal I2S calls are 3840 bytes; partial-write recovery retries the remaining tail, zero-progress backoff remains one tick. Physical PASS requires zero errors and short writes."
+      },
+      "expected_aligned_timing_not_measurements": {
+        "writes_per_5_seconds": 229.6875,
+        "write_duration_ms": 21.768707482993197,
+        "reference_block_dma_realign_interval_s": 0.34829931972789113
+      },
+      "latest_user_reported_hardware_result": {
+        "environment": "control-spsc-pipeline",
+        "status": "FAIL",
+        "source": "User-provided summary; raw UART not attached and hardware not run by agent",
+        "pcm_bps_approx": 151296,
+        "sequence_errors": 172,
+        "pcm_gap_ms_range": [
+          270,
+          291
+        ],
+        "producer_us_typical_range": [
+          20,
+          53
+        ],
+        "consumer_us_typical_range": [
+          12,
+          16
+        ],
+        "consumer_us_max": 37,
+        "i2s_bps_approx": 176400,
+        "i2s_errors": 0,
+        "short_writes": 0,
+        "drops_kib_per_5s_range": [
+          86,
+          131
+        ],
+        "inserted_silence_kib_per_5s_range": [
+          229,
+          246
+        ],
+        "sequence_error_spacing_s_typical": [
+          0.34,
+          0.35
+        ],
+        "recv_increment_often_hex": "0x0F"
+      },
+      "aligned_hardware_status": "NOT TESTED",
+      "binary_link_audit": {
+        "baseline": {
+          "strict_elf_checks": "PASS",
+          "load_order_changed": false,
+          "before_load_order_sha256": "f663a953a955c06e91550d2ee896c573f679a16ddd81cba2fec0a4982497fdcc",
+          "after_load_order_sha256": "f663a953a955c06e91550d2ee896c573f679a16ddd81cba2fec0a4982497fdcc",
+          "before_load_prefix": [
+            ".pio\\build\\control-baseline\\src\\main.c.o",
+            ".pio\\build\\control-baseline\\esp-idf\\xtensa\\libxtensa.a",
+            ".pio\\build\\control-baseline\\esp-idf\\esp_driver_spi\\libesp_driver_spi.a",
+            ".pio\\build\\control-baseline\\esp-idf\\bt\\libbt.a",
+            ".pio\\build\\control-baseline\\esp-idf\\__pio_env\\lib__pio_env.a",
+            ".pio\\build\\control-baseline\\esp-idf\\app_update\\libapp_update.a",
+            ".pio\\build\\control-baseline\\esp-idf\\bootloader_support\\libbootloader_support.a",
+            ".pio\\build\\control-baseline\\esp-idf\\cxx\\libcxx.a",
+            ".pio\\build\\control-baseline\\esp-idf\\efuse\\libefuse.a",
+            ".pio\\build\\control-baseline\\esp-idf\\esp_app_format\\libesp_app_format.a"
+          ],
+          "after_load_prefix": [
+            ".pio\\build\\control-baseline\\src\\main.c.o",
+            ".pio\\build\\control-baseline\\esp-idf\\xtensa\\libxtensa.a",
+            ".pio\\build\\control-baseline\\esp-idf\\esp_driver_spi\\libesp_driver_spi.a",
+            ".pio\\build\\control-baseline\\esp-idf\\bt\\libbt.a",
+            ".pio\\build\\control-baseline\\esp-idf\\__pio_env\\lib__pio_env.a",
+            ".pio\\build\\control-baseline\\esp-idf\\app_update\\libapp_update.a",
+            ".pio\\build\\control-baseline\\esp-idf\\bootloader_support\\libbootloader_support.a",
+            ".pio\\build\\control-baseline\\esp-idf\\cxx\\libcxx.a",
+            ".pio\\build\\control-baseline\\esp-idf\\efuse\\libefuse.a",
+            ".pio\\build\\control-baseline\\esp-idf\\esp_app_format\\libesp_app_format.a"
+          ]
+        },
+        "main-config": {
+          "strict_elf_checks": "PASS",
+          "load_order_changed": true,
+          "before_load_order_sha256": "f0f39a5a336df554f17f2d97286e3446a0dccf95a4d4274b2887a2d632d2952c",
+          "after_load_order_sha256": "2ef77963398ee0da20eb600697d5f61df28b88a222045bb74272a7c5fc750411",
+          "before_load_prefix": [
+            ".pio/build/control-main-config/src/main.c.o",
+            ".pio/build/control-main-config/esp-idf/__pio_env/lib__pio_env.a",
+            ".pio/build/control-main-config/esp-idf/esp_driver_spi/libesp_driver_spi.a",
+            ".pio/build/control-main-config/esp-idf/xtensa/libxtensa.a",
+            ".pio/build/control-main-config/esp-idf/bt/libbt.a",
+            ".pio/build/control-main-config/esp-idf/app_update/libapp_update.a",
+            ".pio/build/control-main-config/esp-idf/bootloader_support/libbootloader_support.a",
+            ".pio/build/control-main-config/esp-idf/cxx/libcxx.a",
+            ".pio/build/control-main-config/esp-idf/efuse/libefuse.a",
+            ".pio/build/control-main-config/esp-idf/esp_app_format/libesp_app_format.a"
+          ],
+          "after_load_prefix": [
+            ".pio/build/control-main-config/src/main.c.o",
+            ".pio/build/control-main-config/esp-idf/xtensa/libxtensa.a",
+            ".pio/build/control-main-config/esp-idf/esp_driver_spi/libesp_driver_spi.a",
+            ".pio/build/control-main-config/esp-idf/bt/libbt.a",
+            ".pio/build/control-main-config/esp-idf/__pio_env/lib__pio_env.a",
+            ".pio/build/control-main-config/esp-idf/app_update/libapp_update.a",
+            ".pio/build/control-main-config/esp-idf/bootloader_support/libbootloader_support.a",
+            ".pio/build/control-main-config/esp-idf/cxx/libcxx.a",
+            ".pio/build/control-main-config/esp-idf/efuse/libefuse.a",
+            ".pio/build/control-main-config/esp-idf/esp_app_format/libesp_app_format.a"
+          ]
+        },
+        "streambuffer": {
+          "strict_elf_checks": "PASS",
+          "load_order_changed": true,
+          "before_load_order_sha256": "0927c6a60a8cf7107b1f6a64c02d699535d2405e8c9f5b862008eae5c47ff1c7",
+          "after_load_order_sha256": "5323c7edd272b4712ed5b61aa889fac9b927b7772302bed9cf01eca3373d78f5",
+          "before_load_prefix": [
+            ".pio/build/control-streambuffer/src/main.c.o",
+            ".pio/build/control-streambuffer/src/control_stream.c.o",
+            ".pio/build/control-streambuffer/src/control_transport.c.o",
+            ".pio/build/control-streambuffer/esp-idf/esp_driver_spi/libesp_driver_spi.a",
+            ".pio/build/control-streambuffer/esp-idf/bt/libbt.a",
+            ".pio/build/control-streambuffer/esp-idf/__pio_env/lib__pio_env.a",
+            ".pio/build/control-streambuffer/esp-idf/xtensa/libxtensa.a",
+            ".pio/build/control-streambuffer/esp-idf/app_update/libapp_update.a",
+            ".pio/build/control-streambuffer/esp-idf/bootloader_support/libbootloader_support.a",
+            ".pio/build/control-streambuffer/esp-idf/cxx/libcxx.a"
+          ],
+          "after_load_prefix": [
+            ".pio/build/control-streambuffer/src/main.c.o",
+            ".pio/build/control-streambuffer/src/control_stream.c.o",
+            ".pio/build/control-streambuffer/src/control_transport.c.o",
+            ".pio/build/control-streambuffer/esp-idf/__pio_env/lib__pio_env.a",
+            ".pio/build/control-streambuffer/esp-idf/esp_driver_spi/libesp_driver_spi.a",
+            ".pio/build/control-streambuffer/esp-idf/bt/libbt.a",
+            ".pio/build/control-streambuffer/esp-idf/xtensa/libxtensa.a",
+            ".pio/build/control-streambuffer/esp-idf/app_update/libapp_update.a",
+            ".pio/build/control-streambuffer/esp-idf/bootloader_support/libbootloader_support.a",
+            ".pio/build/control-streambuffer/esp-idf/cxx/libcxx.a"
+          ]
+        },
+        "i2s-silence": {
+          "strict_elf_checks": "PASS",
+          "load_order_changed": true,
+          "before_load_order_sha256": "3578728637de28de46de8df6a494a4729dd5c5f820146b6ef80cd6ff05278144",
+          "after_load_order_sha256": "3f2417c63960acc54e648e1435cfafe4172c371214151f07aadce6488417aea6",
+          "before_load_prefix": [
+            ".pio/build/control-i2s-silence/src/main.c.o",
+            ".pio/build/control-i2s-silence/src/control_transport.c.o",
+            ".pio/build/control-i2s-silence/src/control_i2s.c.o",
+            ".pio/build/control-i2s-silence/esp-idf/xtensa/libxtensa.a",
+            ".pio/build/control-i2s-silence/esp-idf/esp_driver_spi/libesp_driver_spi.a",
+            ".pio/build/control-i2s-silence/esp-idf/bt/libbt.a",
+            ".pio/build/control-i2s-silence/esp-idf/__pio_env/lib__pio_env.a",
+            ".pio/build/control-i2s-silence/esp-idf/esp_driver_i2s/libesp_driver_i2s.a",
+            ".pio/build/control-i2s-silence/esp-idf/app_update/libapp_update.a",
+            ".pio/build/control-i2s-silence/esp-idf/bootloader_support/libbootloader_support.a"
+          ],
+          "after_load_prefix": [
+            ".pio/build/control-i2s-silence/src/main.c.o",
+            ".pio/build/control-i2s-silence/src/control_transport.c.o",
+            ".pio/build/control-i2s-silence/src/control_i2s.c.o",
+            ".pio/build/control-i2s-silence/esp-idf/xtensa/libxtensa.a",
+            ".pio/build/control-i2s-silence/esp-idf/__pio_env/lib__pio_env.a",
+            ".pio/build/control-i2s-silence/esp-idf/esp_driver_spi/libesp_driver_spi.a",
+            ".pio/build/control-i2s-silence/esp-idf/bt/libbt.a",
+            ".pio/build/control-i2s-silence/esp-idf/esp_driver_i2s/libesp_driver_i2s.a",
+            ".pio/build/control-i2s-silence/esp-idf/app_update/libapp_update.a",
+            ".pio/build/control-i2s-silence/esp-idf/bootloader_support/libbootloader_support.a"
+          ]
+        },
+        "pipeline": {
+          "strict_elf_checks": "FAIL",
+          "load_order_changed": true,
+          "before_load_order_sha256": "81c49eb1213f869de24604b31e56e2ffd3e03cc1c3adeb9568c18e715f2b685f",
+          "after_load_order_sha256": "84c934ecc77e22f3ebfbc3baa64089f4748a76eb92ac2b7dd14592bbd1200380",
+          "before_load_prefix": [
+            ".pio/build/control-pipeline/src/main.c.o",
+            ".pio/build/control-pipeline/src/control_stream.c.o",
+            ".pio/build/control-pipeline/src/control_transport.c.o",
+            ".pio/build/control-pipeline/src/control_i2s.c.o",
+            ".pio/build/control-pipeline/esp-idf/__pio_env/lib__pio_env.a",
+            ".pio/build/control-pipeline/esp-idf/esp_driver_spi/libesp_driver_spi.a",
+            ".pio/build/control-pipeline/esp-idf/xtensa/libxtensa.a",
+            ".pio/build/control-pipeline/esp-idf/esp_driver_i2s/libesp_driver_i2s.a",
+            ".pio/build/control-pipeline/esp-idf/bt/libbt.a",
+            ".pio/build/control-pipeline/esp-idf/app_update/libapp_update.a"
+          ],
+          "after_load_prefix": [
+            ".pio/build/control-pipeline/src/main.c.o",
+            ".pio/build/control-pipeline/src/control_stream.c.o",
+            ".pio/build/control-pipeline/src/control_transport.c.o",
+            ".pio/build/control-pipeline/src/control_i2s.c.o",
+            ".pio/build/control-pipeline/esp-idf/xtensa/libxtensa.a",
+            ".pio/build/control-pipeline/esp-idf/__pio_env/lib__pio_env.a",
+            ".pio/build/control-pipeline/esp-idf/esp_driver_spi/libesp_driver_spi.a",
+            ".pio/build/control-pipeline/esp-idf/bt/libbt.a",
+            ".pio/build/control-pipeline/esp-idf/esp_driver_i2s/libesp_driver_i2s.a",
+            ".pio/build/control-pipeline/esp-idf/app_update/libapp_update.a"
+          ]
+        },
+        "clocked-pipeline": {
+          "strict_elf_checks": "FAIL",
+          "load_order_changed": true,
+          "before_load_order_sha256": "096968d0b92ce74b668d6342e006fe0f4cea1956a583615c6e8c502f6cf8bfdd",
+          "after_load_order_sha256": "79b9289a0bcb9c8c72b86c58f3fe9a99335a2c821a4394a1956f6f35dff18a20",
+          "before_load_prefix": [
+            ".pio/build/control-clocked-pipeline/src/main.c.o",
+            ".pio/build/control-clocked-pipeline/src/control_stream.c.o",
+            ".pio/build/control-clocked-pipeline/src/control_transport.c.o",
+            ".pio/build/control-clocked-pipeline/src/control_i2s.c.o",
+            ".pio/build/control-clocked-pipeline/esp-idf/esp_driver_i2s/libesp_driver_i2s.a",
+            ".pio/build/control-clocked-pipeline/esp-idf/xtensa/libxtensa.a",
+            ".pio/build/control-clocked-pipeline/esp-idf/__pio_env/lib__pio_env.a",
+            ".pio/build/control-clocked-pipeline/esp-idf/esp_driver_spi/libesp_driver_spi.a",
+            ".pio/build/control-clocked-pipeline/esp-idf/bt/libbt.a",
+            ".pio/build/control-clocked-pipeline/esp-idf/app_update/libapp_update.a"
+          ],
+          "after_load_prefix": [
+            ".pio/build/control-clocked-pipeline/src/main.c.o",
+            ".pio/build/control-clocked-pipeline/src/control_stream.c.o",
+            ".pio/build/control-clocked-pipeline/src/control_transport.c.o",
+            ".pio/build/control-clocked-pipeline/src/control_i2s.c.o",
+            ".pio/build/control-clocked-pipeline/esp-idf/__pio_env/lib__pio_env.a",
+            ".pio/build/control-clocked-pipeline/esp-idf/esp_driver_spi/libesp_driver_spi.a",
+            ".pio/build/control-clocked-pipeline/esp-idf/xtensa/libxtensa.a",
+            ".pio/build/control-clocked-pipeline/esp-idf/bt/libbt.a",
+            ".pio/build/control-clocked-pipeline/esp-idf/esp_driver_i2s/libesp_driver_i2s.a",
+            ".pio/build/control-clocked-pipeline/esp-idf/app_update/libapp_update.a"
+          ]
+        },
+        "spsc-pipeline": {
+          "strict_elf_checks": "FAIL",
+          "load_order_changed": true,
+          "before_load_order_sha256": "28597832a894480f75287ae40ec7256dbe08bfbd41d85a4b60fa0927ed399d96",
+          "after_load_order_sha256": "b15622b6a53a8a5ff3a5c46ce17acc38a7641d65acf1f7213b0adae26f473f79",
+          "before_load_prefix": [
+            ".pio/build/control-spsc-pipeline/src/main.c.o",
+            ".pio/build/control-spsc-pipeline/src/control_spsc.c.o",
+            ".pio/build/control-spsc-pipeline/src/control_transport.c.o",
+            ".pio/build/control-spsc-pipeline/src/control_i2s.c.o",
+            ".pio/build/control-spsc-pipeline/esp-idf/esp_driver_spi/libesp_driver_spi.a",
+            ".pio/build/control-spsc-pipeline/esp-idf/bt/libbt.a",
+            ".pio/build/control-spsc-pipeline/esp-idf/__pio_env/lib__pio_env.a",
+            ".pio/build/control-spsc-pipeline/esp-idf/xtensa/libxtensa.a",
+            ".pio/build/control-spsc-pipeline/esp-idf/esp_driver_i2s/libesp_driver_i2s.a",
+            ".pio/build/control-spsc-pipeline/esp-idf/app_update/libapp_update.a"
+          ],
+          "after_load_prefix": [
+            ".pio/build/control-spsc-pipeline/src/main.c.o",
+            ".pio/build/control-spsc-pipeline/src/control_spsc.c.o",
+            ".pio/build/control-spsc-pipeline/src/control_transport.c.o",
+            ".pio/build/control-spsc-pipeline/src/control_i2s.c.o",
+            ".pio/build/control-spsc-pipeline/esp-idf/xtensa/libxtensa.a",
+            ".pio/build/control-spsc-pipeline/esp-idf/__pio_env/lib__pio_env.a",
+            ".pio/build/control-spsc-pipeline/esp-idf/esp_driver_spi/libesp_driver_spi.a",
+            ".pio/build/control-spsc-pipeline/esp-idf/bt/libbt.a",
+            ".pio/build/control-spsc-pipeline/esp-idf/esp_driver_i2s/libesp_driver_i2s.a",
+            ".pio/build/control-spsc-pipeline/esp-idf/app_update/libapp_update.a"
+          ]
+        }
+      },
+      "binary_link_audit_conclusion": "All three differing variants have changed library LOAD order in saved before/after maps, with unchanged preprocessed application sources and config semantics. This is evidence of link-layout variation, not proof of the cause of every differing byte or of hardware equivalence. Expected hashes were not changed.",
+      "previous_round_binary_rebuild_audit": {
+        "environment": "control-main-config",
+        "experiment": "Relink and clean rebuild without source or sdkconfig changes; pre-change ELF/map copied before experiment.",
+        "relink_changed_allocated_sections_excluding_appdesc": false,
+        "clean_rebuild_changed_sections": {
+          ".iram0.vectors": {
+            "before": "48f855612d218dc17e1b7e034d416d62bfc3e820842684a0d4164cd0dfa64ca1",
+            "after": "1f0b3f5657a6783b5e0a15ca95adf288fde93e2c084e8fcd2136b3cdabec8ecb"
+          },
+          ".iram0.text": {
+            "before": "392186b4515ee6b89a11fc3e83e3bc78cf69065961d62c407833f1d76f1e13a9",
+            "after": "6a8c6d0478143f2214cbf466c178dea8247a1f768a4ae56e47f1385ca42beb6d"
+          },
+          ".dram0.data": {
+            "before": "f231f10e43a9be3ddb2e7cf70b631c38234f9e5f6d4ed8a4a2d79269bd4c3569",
+            "after": "da5989fdbdbdf7f6d0010317d7882ecc6d93ee6fd3d657da033658a777685ce2"
+          },
+          ".flash.rodata": {
+            "before": "aac4b55ff02ae516fa5c52fd887874042861c1c960509c5ba1781d33653a066f",
+            "after": "9a110db07f4e6e2d9cdd5e409f3900787d724ed769523536873b3cd50ae34b87"
+          },
+          ".flash.tdata": {
+            "before": "34dd29f537d91ce0fc19a7f685b39c521dc55c1d3d1f4fa124a3587c7df094e4",
+            "after": "1bd1a1b6008f77bf808a5d1208aabbd38a92aeb0c8d7d3152ab38da08b536212"
+          },
+          ".flash.text": {
+            "before": "832de1fdcdf9a86702b9cff3e746967cd1a994df9ef0a1ec98a4a1a19f22e339",
+            "after": "2647db88999a33219069944d65bc675980233938e642df97faf7d2bdc8daf9e3"
+          }
+        },
+        "linker_LOAD_order_changed": true,
+        "LOAD_prefix_before": [
+          ".pio/build/control-main-config/src/main.c.o",
+          ".pio/build/control-main-config/esp-idf/esp_driver_spi/libesp_driver_spi.a",
+          ".pio/build/control-main-config/esp-idf/bt/libbt.a",
+          ".pio/build/control-main-config/esp-idf/__pio_env/lib__pio_env.a",
+          ".pio/build/control-main-config/esp-idf/xtensa/libxtensa.a",
+          ".pio/build/control-main-config/esp-idf/app_update/libapp_update.a"
+        ],
+        "LOAD_prefix_after": [
+          ".pio/build/control-main-config/src/main.c.o",
+          ".pio/build/control-main-config/esp-idf/__pio_env/lib__pio_env.a",
+          ".pio/build/control-main-config/esp-idf/esp_driver_spi/libesp_driver_spi.a",
+          ".pio/build/control-main-config/esp-idf/xtensa/libxtensa.a",
+          ".pio/build/control-main-config/esp-idf/bt/libbt.a",
+          ".pio/build/control-main-config/esp-idf/app_update/libapp_update.a"
+        ],
+        "local_evidence_directory": ".pio/binary-audit (ignored)",
+        "conclusion": "Byte-reproducibility is not guaranteed even without source edits. This does not prove every historical binary difference has the same cause. Strict expected hashes were retained; failing comparisons remain FAIL."
+      },
+      "build_logs": [
+        ".pio/aligned-build.log",
+        ".pio/aligned-legacy-build.log",
+        ".pio/aligned-final-build.log"
+      ],
+      "files_changed_this_round": [
+        "platformio.ini",
+        "CMakeLists.txt",
+        "src/CMakeLists.txt",
+        "src/control_variant.h",
+        "src/control_audio_config.h",
+        "src/control_spsc.c",
+        "src/control_transport.c",
+        "tools/verify_ab.py",
+        "tools/verify_clocked.py",
+        "tools/verify_spsc_runtime.py",
+        "tools/test_spsc.c",
+        "tools/verify_aligned.py",
+        "README.md",
+        "docs/ab-investigation.md",
+        "docs/verification.json",
+        "docs/aligned-reference.json"
+      ],
+      "git_diff_check": "PASS",
+      "changed_file_whitespace_check": "PASS"
+    },
+    "git_diff_check": {
+      "checks": "PASS",
+      "exit_code": 0
+    },
+    "changed_file_whitespace_check": "PASS"
+  }
+}

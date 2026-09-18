@@ -1,0 +1,35 @@
+{
+  "description": "Captured before adding variant 6; GCC -E -P output for each existing application translation unit.",
+  "legacy_preprocessed_sha256": {
+    "baseline": {
+      "main.c": "953c41c8c9780cf2440bde0a504b96664344b0f7a7f222a2481be78b2a237240"
+    },
+    "main-config": {
+      "main.c": "357c396fc9656d449443b5ae7face36dbe00e96385cbe4cf84342336ecb117b1"
+    },
+    "streambuffer": {
+      "main.c": "b8c130a823090b8a5f9965794621850579bfed4381c07f8224ee50c16bf17ff7",
+      "control_stream.c": "2c5af447b1ac885303f8973456b131be2afee1f26ea233b60b3c4e7853a20f49",
+      "control_transport.c": "08ef742532edcbba2956d3291226710794a24ddbc0ee574b0e69a93dd6b0621f"
+    },
+    "i2s-silence": {
+      "main.c": "1b3f52af3567c3b48908ce9f1acd18ae07e5bbba8aaf6a0066fe46c87d081b06",
+      "control_transport.c": "05c635d66d99295fa8d2a6fc683015d0d703519f7f72d458e8dfb4f9a10aa704",
+      "control_i2s.c": "f907808a1a577c889bb833aa839f94d414c40e545c6502a268e1c4ef554a4b43"
+    },
+    "pipeline": {
+      "main.c": "f8259004fc4168408c42462ff9c9ce642d9ad496dd6357590a9ee97d54ee68dd",
+      "control_stream.c": "2c5af447b1ac885303f8973456b131be2afee1f26ea233b60b3c4e7853a20f49",
+      "control_transport.c": "51c520760871a699a99b3c1b3f1898aa260f6cfa697e0ea2381b613730517092",
+      "control_i2s.c": "f907808a1a577c889bb833aa839f94d414c40e545c6502a268e1c4ef554a4b43"
+    }
+  },
+  "unchanged_source_sha256": {
+    "src/main.c": "205032731b3c697d7d474305a38653147cc77cf1d9336d7a2981ec22438b7325",
+    "src/control_stream.c": "b1d9058dbd99c68eefba2dff395cc2960714733e16519a77a8da8ee697238786",
+    "src/control_stream.h": "286833b9ff6f047810c0b1d6a0ac2394bd713d8248b8dd59ce3b75a87af5911f",
+    "src/control_i2s.c": "754e1d5009ad87833881587ef07e5602bb9605293f1584f356b3e277dbc45c6b",
+    "src/control_i2s.h": "716482ca7ce1c601dd411e65200062b7b132c82996adb759d0e013aae5ddb5ec",
+    "src/control_transport.h": "815a4779c99eb84c74cc84392eec1fefcdea4eea0b71b9c352e84636385127b4"
+  }
+}

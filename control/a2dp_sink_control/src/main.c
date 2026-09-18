@@ -24,6 +24,10 @@
 #include "esp_system.h"
 #include "esp_timer.h"
 #include "nvs_flash.h"
+#include "control_variant.h"
+#if CONTROL_HAS_TRANSPORT
+#include "control_transport.h"
+#endif
 
 #if ESP_IDF_VERSION != ESP_IDF_VERSION_VAL(6, 1, 0)
 #error "This control baseline requires ESP-IDF 6.1.0"
@@ -141,6 +145,9 @@ static void set_audio_state(audio_state_t state)
         s_stats.channel_mode = 0;
     }
     portEXIT_CRITICAL(&s_stats_lock);
+#if CONTROL_HAS_TRANSPORT
+    control_transport_set_streaming(state == AUDIO_STARTED);
+#endif
 }
 
 /* Drain-only: data is owned by Bluedroid; never read, copy, retain or free it. */
@@ -168,6 +175,16 @@ static void pcm_data_callback(const uint8_t *data, uint32_t len)
     s_stats.last_pcm_us = now_us;
     portEXIT_CRITICAL(&s_stats_lock);
 }
+
+#if CONTROL_HAS_STREAM
+static void buffered_pcm_data_callback(const uint8_t *data, uint32_t len)
+{
+    const int64_t entry_us = esp_timer_get_time();
+    pcm_data_callback(data, len);
+    control_transport_send(data, len);
+    control_transport_callback_done(entry_us);
+}
+#endif
 
 static void stats_task(void *arg)
 {
@@ -229,6 +246,9 @@ static void stats_task(void *arg)
                  snapshot.gaps.gt_100ms, snapshot.gaps.gt_200ms,
                  snapshot.sample_rate, sbc_channel_mode(snapshot.channel_mode),
                  audio_state_name(snapshot.audio_state));
+#if CONTROL_HAS_TRANSPORT
+        control_transport_log_stats();
+#endif
     }
 }
 
@@ -265,6 +285,12 @@ static void handle_audio_config(const esp_a2d_mcc_t *mcc)
         reset_measurement_locked(esp_timer_get_time());
     }
     portEXIT_CRITICAL(&s_stats_lock);
+#if CONTROL_HAS_TRANSPORT
+    control_transport_set_format(sample_rate,
+        channel_mode == ESP_A2D_SBC_CIE_CH_MODE_DUAL_CHANNEL ||
+        channel_mode == ESP_A2D_SBC_CIE_CH_MODE_STEREO ||
+        channel_mode == ESP_A2D_SBC_CIE_CH_MODE_JOINT_STEREO);
+#endif
     if (previous_rate != 0 &&
         (previous_rate != sample_rate || previous_mode != channel_mode)) {
         ESP_LOGW(TAG, "SBC configuration changed: sample_rate=%" PRIu32 " -> %" PRIu32
@@ -341,8 +367,8 @@ static void gap_callback(esp_bt_gap_cb_event_t event, esp_bt_gap_cb_param_t *par
 
 void app_main(void)
 {
-    ESP_LOGI(TAG, "build=a2dp_sink_control (drain-only), device=%s, ESP-IDF=%s",
-             DEVICE_NAME, esp_get_idf_version());
+    ESP_LOGI(TAG, "CONTROL variant=%s, build=a2dp_sink_control, device=%s, ESP-IDF=%s",
+             CONTROL_VARIANT_NAME, DEVICE_NAME, esp_get_idf_version());
 
     esp_err_t err = nvs_flash_init();
     if (err == ESP_ERR_NVS_NO_FREE_PAGES || err == ESP_ERR_NVS_NEW_VERSION_FOUND) {
@@ -351,6 +377,9 @@ void app_main(void)
     }
     ESP_ERROR_CHECK(err);
 
+#if CONTROL_HAS_TRANSPORT
+    ESP_ERROR_CHECK(control_transport_init());
+#endif
     ESP_ERROR_CHECK(esp_bt_controller_mem_release(ESP_BT_MODE_BLE));
     esp_bt_controller_config_t bt_cfg = BT_CONTROLLER_INIT_CONFIG_DEFAULT();
     ESP_LOGI(TAG, "Bluetooth Classic controller starting (default configuration)");
@@ -381,9 +410,13 @@ void app_main(void)
 
     ESP_ERROR_CHECK(esp_a2d_register_callback(a2dp_callback));
     ESP_ERROR_CHECK(esp_a2d_sink_init());
+#if CONTROL_HAS_STREAM
+    ESP_ERROR_CHECK(esp_a2d_sink_register_data_callback(buffered_pcm_data_callback));
+#else
     ESP_ERROR_CHECK(esp_a2d_sink_register_data_callback(pcm_data_callback));
+#endif
     ESP_ERROR_CHECK(esp_bt_gap_set_scan_mode(ESP_BT_CONNECTABLE,
                                             ESP_BT_GENERAL_DISCOVERABLE));
-    ESP_LOGI(TAG, "ready: discoverable as %s; PCM drain-only, audio_state=stopped",
-             DEVICE_NAME);
+    ESP_LOGI(TAG, "ready: discoverable as %s; variant=%s, audio_state=stopped",
+             DEVICE_NAME, CONTROL_VARIANT_NAME);
 }

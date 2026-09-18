@@ -1,5 +1,28 @@
-idf_component_register(
-    SRCS "main.c"
-    INCLUDE_DIRS "."
-    PRIV_REQUIRES bt nvs_flash esp_timer
-)
+# Build properties are exported to IDF's separate early requirements pass.
+idf_build_get_property(control_variant CONTROL_VARIANT)
+set(control_sources "main.c")
+set(control_requires bt nvs_flash esp_timer)
+if(control_variant STREQUAL "9")
+    set(control_sources "control_official_main.c" "control_official_i2s.c")
+    list(APPEND control_requires esp_driver_i2s esp_ringbuf)
+endif()
+if(control_variant STREQUAL "3" OR control_variant STREQUAL "5" OR control_variant STREQUAL "6")
+    list(APPEND control_sources "control_stream.c")
+endif()
+if(control_variant STREQUAL "7" OR control_variant STREQUAL "8")
+    list(APPEND control_sources "control_spsc.c")
+endif()
+if(control_variant STREQUAL "3" OR control_variant STREQUAL "4" OR control_variant STREQUAL "5" OR control_variant STREQUAL "6" OR control_variant STREQUAL "7" OR control_variant STREQUAL "8")
+    list(APPEND control_sources "control_transport.c")
+endif()
+if(control_variant STREQUAL "4" OR control_variant STREQUAL "5" OR control_variant STREQUAL "6" OR control_variant STREQUAL "7" OR control_variant STREQUAL "8")
+    list(APPEND control_sources "control_i2s.c")
+    list(APPEND control_requires esp_driver_i2s)
+endif()
+idf_component_register(SRCS ${control_sources} INCLUDE_DIRS "."
+                       PRIV_REQUIRES ${control_requires})
+target_compile_definitions(${COMPONENT_LIB} PRIVATE CONTROL_CMAKE_VARIANT=${control_variant})
+if(control_variant STREQUAL "9")
+    idf_build_get_property(official_env CONTROL_OFFICIAL_ENV)
+    target_compile_definitions(${COMPONENT_LIB} PRIVATE CONTROL_OFFICIAL_ENV_NAME="${official_env}")
+endif()

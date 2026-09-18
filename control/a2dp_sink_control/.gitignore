@@ -4,3 +4,5 @@ sdkconfig
 sdkconfig.old
 sdkconfig.a2dp_sink_control
 sdkconfig.a2dp_sink_control.old
+sdkconfig.control-*
+__pycache__/

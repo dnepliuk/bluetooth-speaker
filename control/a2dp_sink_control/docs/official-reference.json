@@ -1,0 +1,83 @@
+{
+  "purpose": "Immutable snapshot before adding variant 9; no ELF identity requirement",
+  "legacy_preprocessed_sha256": {
+    "baseline": {
+      "main.c": "953c41c8c9780cf2440bde0a504b96664344b0f7a7f222a2481be78b2a237240"
+    },
+    "main-config": {
+      "main.c": "357c396fc9656d449443b5ae7face36dbe00e96385cbe4cf84342336ecb117b1"
+    },
+    "streambuffer": {
+      "main.c": "b8c130a823090b8a5f9965794621850579bfed4381c07f8224ee50c16bf17ff7",
+      "control_stream.c": "2c5af447b1ac885303f8973456b131be2afee1f26ea233b60b3c4e7853a20f49",
+      "control_transport.c": "08ef742532edcbba2956d3291226710794a24ddbc0ee574b0e69a93dd6b0621f"
+    },
+    "i2s-silence": {
+      "main.c": "1b3f52af3567c3b48908ce9f1acd18ae07e5bbba8aaf6a0066fe46c87d081b06",
+      "control_transport.c": "05c635d66d99295fa8d2a6fc683015d0d703519f7f72d458e8dfb4f9a10aa704",
+      "control_i2s.c": "f907808a1a577c889bb833aa839f94d414c40e545c6502a268e1c4ef554a4b43"
+    },
+    "pipeline": {
+      "main.c": "f8259004fc4168408c42462ff9c9ce642d9ad496dd6357590a9ee97d54ee68dd",
+      "control_stream.c": "2c5af447b1ac885303f8973456b131be2afee1f26ea233b60b3c4e7853a20f49",
+      "control_transport.c": "51c520760871a699a99b3c1b3f1898aa260f6cfa697e0ea2381b613730517092",
+      "control_i2s.c": "f907808a1a577c889bb833aa839f94d414c40e545c6502a268e1c4ef554a4b43"
+    },
+    "clocked-pipeline": {
+      "main.c": "34603f7a58eb52d8c11a8e1264ebb1362ed21afbf3947c3b1e36e64e7435f594",
+      "control_stream.c": "2c5af447b1ac885303f8973456b131be2afee1f26ea233b60b3c4e7853a20f49",
+      "control_transport.c": "a685f838aa5ce879c238fcd9ab9389610abcae9bfa9f38adedeee4dd8c7bb862",
+      "control_i2s.c": "f907808a1a577c889bb833aa839f94d414c40e545c6502a268e1c4ef554a4b43"
+    },
+    "spsc-pipeline": {
+      "main.c": "fc85b7d324be93b8eaa4ec8f3660342ca5fad7e2ed71b1fe8a73a099f2538e0c",
+      "control_spsc.c": "160606d0e1c6b74c33552d07fbaf651783ea29640711fa2e4f2b2c9ff81997bb",
+      "control_transport.c": "598c1df19d047296800745e37a498bcf3cba9ddc516b7360537ed1a8776fdc9a",
+      "control_i2s.c": "f907808a1a577c889bb833aa839f94d414c40e545c6502a268e1c4ef554a4b43"
+    },
+    "spsc-dma-aligned": {
+      "main.c": "763a5461a8f0385bf172fc8348bcc7787603af3d8c31f9bf08e4cbd5abe3b3af",
+      "control_spsc.c": "fd91cca0e3d733d22d404d0dcc2b9c925015384b9344a083b23a3783fab23bb2",
+      "control_transport.c": "306c958de022c0b61081f391d8afbc11a26d7cb7791499b492d3729981e1e835",
+      "control_i2s.c": "f907808a1a577c889bb833aa839f94d414c40e545c6502a268e1c4ef554a4b43"
+    }
+  },
+  "sdkconfig_semantic_sha256": {
+    "baseline": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113",
+    "main-config": "57af2a26582a4efe5cd210450a23fbf1b44b50e610852edb11f61685c6d51e56",
+    "streambuffer": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113",
+    "i2s-silence": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113",
+    "pipeline": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113",
+    "clocked-pipeline": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113",
+    "spsc-pipeline": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113",
+    "spsc-dma-aligned": "1461cdd3bda5b5a5fb65de4ec3222ba57b344424999701a10469d499c2738113"
+  },
+  "source_sha256": {
+    "src/CMakeLists.txt": "a88c8419b405e4611c66453bf5c1e13934d2e65d57c83dc73d35c57da0e62a0d",
+    "src/control_audio_config.h": "662bb2ef4916da45f1cf8d209e4f31fef084ed56f0961881ce9dd2ceebd2713a",
+    "src/control_i2s.c": "754e1d5009ad87833881587ef07e5602bb9605293f1584f356b3e277dbc45c6b",
+    "src/control_i2s.h": "716482ca7ce1c601dd411e65200062b7b132c82996adb759d0e013aae5ddb5ec",
+    "src/control_spsc.c": "d47b2f0309e54014c846c3f93cb98c83e049f3c37eeaae7d941d0a6937bb7071",
+    "src/control_spsc.h": "d718822da577d5e9783af7bd878ea55ee55b23b17fe8ee81f783113090458b5c",
+    "src/control_stream.c": "b1d9058dbd99c68eefba2dff395cc2960714733e16519a77a8da8ee697238786",
+    "src/control_stream.h": "286833b9ff6f047810c0b1d6a0ac2394bd713d8248b8dd59ce3b75a87af5911f",
+    "src/control_transport.c": "3c138b08d7a7810bd617902bade4c35b3c3f94e493fac8c3f77db1cf800028fe",
+    "src/control_transport.h": "815a4779c99eb84c74cc84392eec1fefcdea4eea0b71b9c352e84636385127b4",
+    "src/control_variant.h": "723fe1f63484add5b189f49f870ec64d0797d01df8255c6cb1dd6c4694929fae",
+    "src/main.c": "205032731b3c697d7d474305a38653147cc77cf1d9336d7a2981ec22438b7325",
+    "sdkconfig.defaults": "b86c07148ade3c6841fdade28cccd42ce5a40902d25f8608ebf34e04c3271fa1",
+    "sdkconfig.main-config.defaults": "15ec401296c4feeee0802d16155aba1c7ba6e3d3ffadeedcefb2f1a51ab230c7"
+  },
+  "normative_local_idf": {
+    "root": "C:\\Users\\1dima\\.platformio\\packages\\framework-espidf",
+    "files": {
+      "examples/bluetooth/bluedroid/classic_bt/a2dp_sink_stream/main/main.c": "75a0cd450d1cb6f8c4fbed2282e0ebf11f590c38751fc9c0f6304448664cccf3",
+      "examples/bluetooth/bluedroid/classic_bt/common/a2dp_utils/a2dp_sink_int_codec_utils/audio_sink_service_i2s.c": "9ff8ef8e473b6e9d38b80b169a2e5de620612b508f16a13e8502c681820d2e27",
+      "examples/bluetooth/bluedroid/classic_bt/common/a2dp_utils/a2dp_sink_int_codec_utils/audio_sink_service.h": "57a67e042d96b757c3c39a1b17691de17f9231385822470b4ee22b3e72f26ad6",
+      "examples/bluetooth/bluedroid/classic_bt/common/a2dp_utils/a2dp_sink_int_codec_utils/a2dp_sink_int_codec_utils.c": "e767525822db8b1397e304802cc2f21d9fbbdf0c96cdfb6c77a24dcc5d1ee6a8",
+      "components/esp_driver_i2s/include/driver/i2s_common.h": "7f360db47c8c90540cab794ce8e9a3fea7178fdcf8f0f7912f1ff22cb4d3297b",
+      "components/esp_driver_i2s/i2s_common.c": "7bfc9633a327eb2b04b9c0b9d8c97bc387215ed32e9c3a19a0ca84f911b0a362",
+      "components/bt/host/bluedroid/btc/profile/std/a2dp/btc_a2dp_sink.c": "a67c052e275c81f5def22ab153242f18765e5235cfc4824c7abc05d6a2df366f"
+    }
+  }
+}
